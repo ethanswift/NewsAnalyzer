@@ -8,6 +8,6 @@ target 'Objectify' do
   # Pods for Objectify
     pod 'SwiftyJSON'
     pod 'Alamofire'
-    pod 'Charts'
-
+    pod 'Charts', '3.4.0'
+    
 end

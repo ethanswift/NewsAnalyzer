@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d07-Tm-VhD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ucf-DU-Lhu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,17 +31,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
-                                <rect key="frame" x="126" y="529" width="123" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
+                                <rect key="frame" x="147.5" y="563" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0GP-3v-Z8y"/>
+                                    <constraint firstAttribute="height" constant="80" id="34Q-wr-KH6"/>
+                                </constraints>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="ucf-DU-Lhu" eventType="touchUpInside" id="94F-OP-TSH"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
-                                <rect key="frame" x="16" y="20" width="343" height="501"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
+                                <rect key="frame" x="16" y="20" width="343" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,6 +51,15 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gI3-gz-BKN" firstAttribute="trailing" secondItem="aEz-ED-6pa" secondAttribute="trailing" constant="16" id="DKI-gM-Yr2"/>
+                            <constraint firstItem="hxU-sI-QGp" firstAttribute="top" secondItem="aEz-ED-6pa" secondAttribute="bottom" constant="8" id="KFi-hV-MFz"/>
+                            <constraint firstItem="gI3-gz-BKN" firstAttribute="bottom" secondItem="hxU-sI-QGp" secondAttribute="bottom" constant="24" id="gOM-wr-gcg"/>
+                            <constraint firstItem="hxU-sI-QGp" firstAttribute="top" secondItem="aEz-ED-6pa" secondAttribute="bottom" constant="8" id="gWZ-lq-Lsw"/>
+                            <constraint firstItem="aEz-ED-6pa" firstAttribute="top" secondItem="gI3-gz-BKN" secondAttribute="top" id="iHM-iy-uGo"/>
+                            <constraint firstItem="aEz-ED-6pa" firstAttribute="leading" secondItem="gI3-gz-BKN" secondAttribute="leading" constant="16" id="jyq-Pl-kC1"/>
+                            <constraint firstItem="hxU-sI-QGp" firstAttribute="centerX" secondItem="QYs-Vf-7Qq" secondAttribute="centerX" id="oQE-KM-qMS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gI3-gz-BKN"/>
                     </view>
                     <connections>
@@ -159,22 +170,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your News' Emotional Load" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-RV-22u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People Organization Places" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-RV-22u">
                                 <rect key="frame" x="16" y="20" width="343" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLo-EP-2C6">
-                                <rect key="frame" x="16" y="429" width="343" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-Ln-JIj">
-                                <rect key="frame" x="16" y="102" width="343" height="319"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="467-yf-YQO"/>

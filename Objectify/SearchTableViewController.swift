@@ -79,22 +79,6 @@ class SearchTableViewController: UITableViewController {
     }
     */
     
-    func retrieveKeyWordData () {
-        let headers = ["":""]
-        let postData = NSMutableData(data: textViewText.data(using: String.Encoding.utf8)!)
-        var request = URLRequest(url: URL(fileURLWithPath: ""))
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = headers
-        request.httpBody = postData as! Data
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
-        
-    }
 
     /*
     // MARK: - Navigation
