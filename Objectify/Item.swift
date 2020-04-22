@@ -33,27 +33,3 @@ class Item {
     }
 }
 
-class Doc {
-    var docSentimentPolarity: String = ""
-    var docSentimentResultString: String = ""
-    var docSentimentValue: Double = 0.0
-    var subjectivity: String = ""
-    var magnitude: Double = 0.0
-    init(docSentimentPolarity: String, docSentimentResultString: String, docSentimentValue: Double, subjectivity: String, magnitude: Double) {
-        self.docSentimentPolarity = docSentimentPolarity
-        self.docSentimentResultString = docSentimentResultString
-        self.docSentimentValue = docSentimentValue
-        self.subjectivity = subjectivity
-        self.magnitude = magnitude
-    }
-}
-
-class Categories {
-    var categoryName: String = ""
-    var score: Double = 0.0
-    init(categoryName: String, score: Double) {
-        self.categoryName = categoryName
-        self.score = score
-    }
-    
-}

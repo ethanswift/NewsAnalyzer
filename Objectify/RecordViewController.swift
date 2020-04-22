@@ -24,6 +24,12 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     private var recognitionTask: SFSpeechRecognitionTask?
     
+    var items: [Item] = []
+    
+    var categories: [Categories] = []
+    
+    var docs: [Doc] = []
+    
     private let audioEngine = AVAudioEngine()
     
     var transcriptionText: String = "President Trump on Friday openly encouraged right-wing protests of social distancing restrictions in states with stay-at-home orders, a day after announcing guidelines for how the nation’s governors should carry out an orderly reopening of their communities on their own timetables.In a series of all-caps tweets that started two minutes after a Fox News report on the protesters, the president declared, “LIBERATE MICHIGAN!” and “LIBERATE MINNESOTA!” — two states whose Democratic governors have imposed strict social distancing restrictions. He also lashed out at Virginia, where the state’s Democratic governor and legislature have pushed for strict gun control measures, saying: “LIBERATE VIRGINIA, and save your great 2nd Amendment. It is under siege!”His stark departure from the more bipartisan tone of his announcement on Thursday night suggested Mr. Trump was ceding any semblance of national leadership on the pandemic, and choosing instead to divide the country by playing to his political base.Echoed across the internet and on cable television by conservative pundits and ultraright conspiracy theorists, his tweets were a remarkable example of a president egging on demonstrators and helping to stoke an angry fervor that in its anti-government rhetoric was eerily reminiscent of the birth of the Tea Party movement a decade ago."
@@ -185,6 +191,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                     for autoCategory in autoCategories {
                         let categoryName = autoCategory["CategoryName"].string ?? "Not Found"
                         let categoryNameScore = autoCategory["Score"].double ?? 0.0
+                        let categories = Categories(categoryName: categoryName, score: categoryNameScore)
+                        self.categories.append(categories)
                     }
                 }
                 if let coreSentences = json["CoreSentences"].array {
@@ -196,6 +204,9 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentResultString = coreSentence["SentimentResultString"].string ?? "Not Found"
                         let sentimentValue = coreSentence["SentimentValue"].double ?? 0.0
                         let text = coreSentence["Text"].string ?? "Not Found"
+                        // text and sentence text are the same here
+                        let item = Item(sentenceText: text, sentencePartType: "CoreSentence", sentenceNumber: sentenceNumber, text: text, keywordType: "Sentence", mentions: 0.0, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResultString, sentimentValue: sentimentValue, magnitude: magnitude)
+                        self.items.append(item)
                     }
                 }
                 let docSentimentPolarity = json["DocSentimentPolarity"].string ?? "Not Found"
@@ -216,6 +227,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentResult = entity["SentimentResult"].string ?? "Not Found"
                         let sentimentValue = entity["SentimentValue"].double ?? 0.0
                         let text = entity["Text"].string ?? "Not Found"
+                        let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+                        self.items.append(item)
                     }
                 }
                 if let keywords = json["Keywords"].array {
@@ -230,9 +243,15 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentResult = keyword["SentimentResult"].string ?? "Not Found"
                         let sentimentValue = keyword["SentimentValue"].double ?? 0.0
                         let text = keyword["Text"].string ?? "Not Found"
+                        let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+                        self.items.append(item)
                     }
                 }
                 let subjectivity = json["Subjectivity"].string ?? "Not Found"
+                let magnitude = json["Magnitude"].double ?? 0.0
+                let doc = Doc(docSentimentPolarity: docSentimentPolarity, docSentimentResultString: docSentimentResultString, docSentimentValue: docSentimentValue, subjectivity: subjectivity, magnitude: magnitude)
+                self.docs.append(doc)
+                
                 if let themes = json["Themes"].array {
                     for theme in themes {
                         let sentimentPolarity = theme["SentimentPolarity"].string ?? "Not Found"
@@ -244,6 +263,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = theme["SentimentValue"].double ?? 0.0
                         let magnitude = theme["Magnitude"].double ?? 0.0
                         let text = theme["Text"].string ?? "Not Found"
+                        let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+                        self.items.append(item)
                     }
                 }
             }

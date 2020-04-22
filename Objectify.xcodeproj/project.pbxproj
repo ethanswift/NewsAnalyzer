@@ -19,6 +19,8 @@
 		C099399C244FEBF200C768C2 /* KeywordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */; };
 		C099399E244FED0500C768C2 /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399D244FED0500C768C2 /* ThemesTableViewController.swift */; };
 		C09939A0244FF50E00C768C2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399F244FF50E00C768C2 /* Item.swift */; };
+		C09939A224502B1300C768C2 /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09939A124502B1300C768C2 /* Doc.swift */; };
+		C09939A424502B5000C768C2 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09939A324502B5000C768C2 /* Categories.swift */; };
 		E5E44B2CE134AA417301CEB2 /* Pods_Objectify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD8026029B0CBB7C32ABEB7 /* Pods_Objectify.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTableViewController.swift; sourceTree = "<group>"; };
 		C099399D244FED0500C768C2 /* ThemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
 		C099399F244FF50E00C768C2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C09939A124502B1300C768C2 /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
+		C09939A324502B5000C768C2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		CAD4CF97EDC014F2AA15FCCE /* Pods-Objectify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.release.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.release.xcconfig"; sourceTree = "<group>"; };
 		F24029BD2DD588BEC01F9609 /* Pods-Objectify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.debug.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +98,8 @@
 				C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */,
 				C0117F1724222F02009C1D42 /* RecordViewController.swift */,
 				C099399F244FF50E00C768C2 /* Item.swift */,
+				C09939A324502B5000C768C2 /* Categories.swift */,
+				C09939A124502B1300C768C2 /* Doc.swift */,
 				C0117F0C2420D8BB009C1D42 /* Assets.xcassets */,
 				C0117F0E2420D8BB009C1D42 /* LaunchScreen.storyboard */,
 				C0117F112420D8BB009C1D42 /* Info.plist */,
@@ -230,8 +236,10 @@
 				C0117F082420D8B8009C1D42 /* ViewController.swift in Sources */,
 				C0117F1E2428B011009C1D42 /* SearchTableViewController.swift in Sources */,
 				C0117F062420D8B8009C1D42 /* AppDelegate.swift in Sources */,
+				C09939A424502B5000C768C2 /* Categories.swift in Sources */,
 				C099399C244FEBF200C768C2 /* KeywordsTableViewController.swift in Sources */,
 				C0117F1C2428AFBA009C1D42 /* ResultViewController.swift in Sources */,
+				C09939A224502B1300C768C2 /* Doc.swift in Sources */,
 				C099399E244FED0500C768C2 /* ThemesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
