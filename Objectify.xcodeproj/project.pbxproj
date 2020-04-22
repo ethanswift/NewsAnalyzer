@@ -16,7 +16,9 @@
 		C0117F1C2428AFBA009C1D42 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */; };
 		C0117F1E2428B011009C1D42 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0117F1D2428B011009C1D42 /* SearchTableViewController.swift */; };
 		C0993996244AD20C00C768C2 /* SentimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0993995244AD20C00C768C2 /* SentimentViewController.swift */; };
-		C0993998244AD26E00C768C2 /* EntityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0993997244AD26E00C768C2 /* EntityViewController.swift */; };
+		C099399C244FEBF200C768C2 /* KeywordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */; };
+		C099399E244FED0500C768C2 /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399D244FED0500C768C2 /* ThemesTableViewController.swift */; };
+		C09939A0244FF50E00C768C2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099399F244FF50E00C768C2 /* Item.swift */; };
 		E5E44B2CE134AA417301CEB2 /* Pods_Objectify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD8026029B0CBB7C32ABEB7 /* Pods_Objectify.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +35,9 @@
 		C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C0117F1D2428B011009C1D42 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		C0993995244AD20C00C768C2 /* SentimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentViewController.swift; sourceTree = "<group>"; };
-		C0993997244AD26E00C768C2 /* EntityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityViewController.swift; sourceTree = "<group>"; };
+		C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTableViewController.swift; sourceTree = "<group>"; };
+		C099399D244FED0500C768C2 /* ThemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
+		C099399F244FF50E00C768C2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CAD4CF97EDC014F2AA15FCCE /* Pods-Objectify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.release.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.release.xcconfig"; sourceTree = "<group>"; };
 		F24029BD2DD588BEC01F9609 /* Pods-Objectify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.debug.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,11 +87,13 @@
 				C0117F052420D8B8009C1D42 /* AppDelegate.swift */,
 				C0117F072420D8B8009C1D42 /* ViewController.swift */,
 				C0117F092420D8B8009C1D42 /* Main.storyboard */,
-				C0993997244AD26E00C768C2 /* EntityViewController.swift */,
+				C099399D244FED0500C768C2 /* ThemesTableViewController.swift */,
 				C0993995244AD20C00C768C2 /* SentimentViewController.swift */,
+				C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */,
 				C0117F1D2428B011009C1D42 /* SearchTableViewController.swift */,
 				C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */,
 				C0117F1724222F02009C1D42 /* RecordViewController.swift */,
+				C099399F244FF50E00C768C2 /* Item.swift */,
 				C0117F0C2420D8BB009C1D42 /* Assets.xcassets */,
 				C0117F0E2420D8BB009C1D42 /* LaunchScreen.storyboard */,
 				C0117F112420D8BB009C1D42 /* Info.plist */,
@@ -219,12 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0993996244AD20C00C768C2 /* SentimentViewController.swift in Sources */,
+				C09939A0244FF50E00C768C2 /* Item.swift in Sources */,
 				C0117F1824222F02009C1D42 /* RecordViewController.swift in Sources */,
 				C0117F082420D8B8009C1D42 /* ViewController.swift in Sources */,
 				C0117F1E2428B011009C1D42 /* SearchTableViewController.swift in Sources */,
 				C0117F062420D8B8009C1D42 /* AppDelegate.swift in Sources */,
-				C0993998244AD26E00C768C2 /* EntityViewController.swift in Sources */,
+				C099399C244FEBF200C768C2 /* KeywordsTableViewController.swift in Sources */,
 				C0117F1C2428AFBA009C1D42 /* ResultViewController.swift in Sources */,
+				C099399E244FED0500C768C2 /* ThemesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
