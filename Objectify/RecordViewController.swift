@@ -271,48 +271,48 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
     }
     
-    func retrieveDataForEmotion () {
-        let url = "http://api.text2data.com/v3/categorize"
-        let headers = ["Accept": "application/json",
-                       "Content-Type": "application/json"]
-        let params = ["DocumentText": transcriptionText,
-                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
-                      "Secret": "8A13C9BB-7762-46E5",
-                      "UserCategoryModelName": "emotion_detection",
-                      "RequestIdentifier": "" ] as [String : Any]
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            if response.error != nil {
-                print(response.error!)
-            }
-            print("2###########################################",response.result.value!)
-            do {
-                guard let json = try? JSON(data: response.data!) else {return}
-                print(json)
-            } catch {}
-        }
-    }
+//    func retrieveDataForEmotion () {
+//        let url = "http://api.text2data.com/v3/categorize"
+//        let headers = ["Accept": "application/json",
+//                       "Content-Type": "application/json"]
+//        let params = ["DocumentText": transcriptionText,
+//                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
+//                      "Secret": "8A13C9BB-7762-46E5",
+//                      "UserCategoryModelName": "emotion_detection",
+//                      "RequestIdentifier": "" ] as [String : Any]
+//        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+//            if response.error != nil {
+//                print(response.error!)
+//            }
+//            print("2###########################################",response.result.value!)
+//            do {
+//                guard let json = try? JSON(data: response.data!) else {return}
+//                print(json)
+//            } catch {}
+//        }
+//    }
     
-    func retrieveDataForEntities () {
-        let url = "http://api.text2data.com/v3/extract"
-        let headers = ["Accept": "application/json",
-                       "Content-Type": "application/json"]
-        let params = ["DocumentText": transcriptionText,
-                      "IsTwitterContent": false,
-                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
-                      "Secret": "8A13C9BB-7762-46E5",
-                      "UserCategoryModelName": "",
-                      "RequestIdentifier": "" ] as [String : Any]
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            if response.error != nil {
-                print(response.error!)
-            }
-            print("3###########################################",response.result.value!)
-            do {
-                guard let json = try? JSON(data: response.data!) else {return}
-                print(json)
-            } catch {}
-        }
-    }
+//    func retrieveDataForEntities () {
+//        let url = "http://api.text2data.com/v3/extract"
+//        let headers = ["Accept": "application/json",
+//                       "Content-Type": "application/json"]
+//        let params = ["DocumentText": transcriptionText,
+//                      "IsTwitterContent": false,
+//                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
+//                      "Secret": "8A13C9BB-7762-46E5",
+//                      "UserCategoryModelName": "",
+//                      "RequestIdentifier": "" ] as [String : Any]
+//        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+//            if response.error != nil {
+//                print(response.error!)
+//            }
+//            print("3###########################################",response.result.value!)
+//            do {
+//                guard let json = try? JSON(data: response.data!) else {return}
+//                print(json)
+//            } catch {}
+//        }
+//    }
     
     func retrieveData () {
         retrieveDataFromAPI()
@@ -327,11 +327,22 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         if segue.identifier == "goToTabBar" {
             let tbc = segue.destination as! UITabBarController
             
-            let secondVC = tbc.viewControllers![0] as! ResultViewController
-            secondVC.textViewText = transcriptionText
+            let firstVC = tbc.viewControllers![0] as! SearchTableViewController
+            firstVC.items = items
+            firstVC.categories = categories
+            firstVC.docs = docs
             
-            let thirdVC = tbc.viewControllers![1] as! SearchTableViewController
-            thirdVC.textViewText = transcriptionText
+            let secondVC = tbc.viewControllers![1] as! ResultViewController
+            secondVC.items = items
+            
+            let thirdVC = tbc.viewControllers![2] as! SentimentViewController
+            thirdVC.items = items
+            
+            let forthVC = tbc.viewControllers![3] as! KeywordsTableViewController
+            forthVC.items = items
+            
+            let fifthVC = tbc.viewControllers![4] as! ThemesTableViewController
+            fifthVC.items = items
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

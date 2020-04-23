@@ -10,7 +10,11 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
     
-    var textViewText: String = ""
+    var items: [Item] = []
+    
+    var docs: [Doc] = []
+    
+    var categories: [Categories] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

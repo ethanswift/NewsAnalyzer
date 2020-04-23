@@ -10,14 +10,30 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class ResultViewController: UIViewController {
+// entities collection view
+
+class ResultViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var textViewText: String = ""
+    var items: [Item] = []
+    
+    @IBOutlet weak var entitiesCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        entitiesCollectionView.delegate = self
+        entitiesCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
 
     /*
     // MARK: - Navigation

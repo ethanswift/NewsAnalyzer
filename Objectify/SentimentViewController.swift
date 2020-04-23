@@ -8,12 +8,29 @@
 
 import UIKit
 
-class SentimentViewController: UIViewController {
+// core sentences table view
 
+class SentimentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var items: [Item] = []
+    
+    @IBOutlet weak var sentencesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sentencesTableView.delegate = self
+        sentencesTableView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
 

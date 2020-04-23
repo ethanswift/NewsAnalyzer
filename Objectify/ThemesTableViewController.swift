@@ -9,6 +9,8 @@
 import UIKit
 
 class ThemesTableViewController: UITableViewController {
+    
+    var items: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
