@@ -12,27 +12,30 @@ import Alamofire
 
 // entities collection view
 
-class ResultViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     var items: [Item] = []
     
-    @IBOutlet weak var entitiesCollectionView: UICollectionView!
+    @IBOutlet weak var entitiesTableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        entitiesCollectionView.delegate = self
-        entitiesCollectionView.dataSource = self
+        entitiesTableView.delegate = self
+        entitiesTableView.dataSource = self
+
         // Do any additional setup after loading the view.
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         <#code#>
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
     }
+    
     
 
     /*

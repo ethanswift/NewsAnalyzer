@@ -14,6 +14,8 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
 
     var items: [Item] = []
     
+    var coreSentences: [Item] = []
+    
     @IBOutlet weak var sentencesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -33,6 +35,16 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         <#code#>
     }
     
+    func fillCoreSentences () {
+        if self.items.count != 0 {
+            for item in self.items {
+                if item.sentencePartType == "coreSentences" {
+                    
+                }
+            }
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

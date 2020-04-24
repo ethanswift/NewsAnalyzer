@@ -11,9 +11,13 @@ import UIKit
 class KeywordsTableViewController: UITableViewController {
     
     var items: [Item] = []
+    
+    var keywords: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillKeywords()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,23 +30,52 @@ class KeywordsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        fillKeywords()
+        if keywords.count != 0 {
+            return keywords.count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
+    }
+    
+    func fillKeywords () {
+        if self.items.count != 0 {
+            for item in items {
+                if item.sentencePartType == "keywords" {
+                    self.keywords.append(item)
+                }
+            }
+        }
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "keywordsCell", for: indexPath)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = self.keywords[indexPath.section].text
+            cell.textLabel?.textAlignment = .center
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            cell.layer.cornerRadius = 20
+        } else if indexPath.row == 1 {
+            cell.textLabel?.text = "Sentiment: " + " \(self.keywords[indexPath.section].sentimentResult) " + " with a value of: " + " \(self.keywords[indexPath.section].sentimentPolarity)" + " \(self.keywords[indexPath.section].sentimentValue)"
+            cell.textLabel?.textAlignment = .center
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "Magnitude: \(self.keywords[indexPath.section].magnitude)"
+            cell.textLabel?.textAlignment = .center
+            cell.clipsToBounds = true
+            cell.layer.cornerRadius = 20
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
         // Configure the cell...
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

@@ -11,9 +11,19 @@ import UIKit
 class ThemesTableViewController: UITableViewController {
     
     var items: [Item] = []
+    
+    var themes: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        tableView.sectionFooterHeight = 20
+        tableView.sectionHeaderHeight = 20
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40
+        tableView.separatorStyle = .none
+        
+        fillThemes()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,23 +36,67 @@ class ThemesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        fillThemes()
+        if self.themes.count != 0 {
+            return themes.count
+        } else {
+            return 0
+        }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
+    }
+    
+    func fillThemes () {
+        if self.items.count != 0 {
+            for item in self.items {
+                if item.sentencePartType == "themes" {
+                    self.themes.append(item)
+                }
+            }
+        }
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "themesCell", for: indexPath)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = self.themes[indexPath.section].text
+            cell.textLabel?.textAlignment = .center
+            cell.clipsToBounds = true
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            cell.layer.cornerRadius = 20
+        } else if indexPath.row == 1 {
+            cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " with a value of: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
+            cell.textLabel?.textAlignment = .center
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "Magnitude: \(self.themes[indexPath.section].magnitude)"
+            cell.textLabel?.textAlignment = .center
+            cell.clipsToBounds = true
+            cell.layer.cornerRadius = 20
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -90,3 +144,4 @@ class ThemesTableViewController: UITableViewController {
     */
 
 }
+
