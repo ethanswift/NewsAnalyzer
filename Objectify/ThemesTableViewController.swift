@@ -13,6 +13,8 @@ class ThemesTableViewController: UITableViewController {
     var items: [Item] = []
     
     var themes: [Item] = []
+    
+    var initialCell: Bool = true 
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,11 +13,18 @@ class KeywordsTableViewController: UITableViewController {
     var items: [Item] = []
     
     var keywords: [Item] = []
+    
+    var initialCell: Bool = true 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fillKeywords()
+        
+        tableView.sectionHeaderHeight = 20
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40
+        tableView.separatorStyle = .none
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -75,8 +82,23 @@ class KeywordsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
  
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
