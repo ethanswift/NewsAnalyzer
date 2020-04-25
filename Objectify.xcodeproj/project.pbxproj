@@ -42,6 +42,7 @@
 		C099399F244FF50E00C768C2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C09939A124502B1300C768C2 /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
 		C09939A324502B5000C768C2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		C0F8456C2454399100780563 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CAD4CF97EDC014F2AA15FCCE /* Pods-Objectify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.release.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.release.xcconfig"; sourceTree = "<group>"; };
 		F24029BD2DD588BEC01F9609 /* Pods-Objectify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.debug.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +71,7 @@
 		C0117EF92420D8B8009C1D42 = {
 			isa = PBXGroup;
 			children = (
+				C0F8456C2454399100780563 /* README.md */,
 				C0117F042420D8B8009C1D42 /* Objectify */,
 				C0117F032420D8B8009C1D42 /* Products */,
 				9B441E39F34570DF482980AB /* Pods */,
