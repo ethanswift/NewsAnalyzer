@@ -14,11 +14,11 @@ class ThemesTableViewController: UITableViewController {
     
     var themes: [Item] = []
     
-    var initialCell: Bool = true 
+    var initialCell: [Bool] = [true]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        tableView.sectionFooterHeight = 20
         tableView.sectionHeaderHeight = 20
         tableView.rowHeight = UITableView.automaticDimension
@@ -63,6 +63,7 @@ class ThemesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "themesCell", for: indexPath)
+        if initialCell[indexPath.section] == true {
         if indexPath.row == 0 {
             cell.textLabel?.text = self.themes[indexPath.section].text
             cell.textLabel?.textAlignment = .center
@@ -78,6 +79,19 @@ class ThemesTableViewController: UITableViewController {
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        } else {
+            if indexPath.row == 0 {
+                cell.textLabel?.text = self.themes[indexPath.section].sentenceText
+                cell.textLabel?.textAlignment = .center
+                cell.clipsToBounds = true
+                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, ]
+                cell.layer.cornerRadius = 20
+            } else if indexPath.row == 1 {
+                
+            } else if indexPath.row == 2 {
+                
+            }
         }
         // Configure the cell...
 
@@ -98,6 +112,11 @@ class ThemesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        initialCell[indexPath.section] = !initialCell[indexPath.section]
+        tableView.reloadData()
     }
 
     /*

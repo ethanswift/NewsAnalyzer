@@ -327,7 +327,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         if segue.identifier == "goToTabBar" {
             let tbc = segue.destination as! UITabBarController
             
-            let firstVC = tbc.viewControllers![0] as! SearchTableViewController
+            let firstVC = tbc.viewControllers![0] as! WebSearchViewController
             firstVC.items = items
             firstVC.categories = categories
             firstVC.docs = docs

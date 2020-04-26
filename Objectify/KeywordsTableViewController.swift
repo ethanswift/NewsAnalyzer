@@ -14,7 +14,7 @@ class KeywordsTableViewController: UITableViewController {
     
     var keywords: [Item] = []
     
-    var initialCell: Bool = true 
+    var initialCell: [Bool] = [true]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +97,11 @@ class KeywordsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        initialCell[indexPath.section] = !initialCell[indexPath.section]
+        tableView.reloadData()
     }
  
     /*

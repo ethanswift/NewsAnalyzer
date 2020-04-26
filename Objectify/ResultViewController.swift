@@ -16,7 +16,7 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
 
     var items: [Item] = []
     
-    var initialCell: Bool = true
+    var initialCell: [Bool] = [true]
     
     @IBOutlet weak var entitiesTableView: UITableView!
     
@@ -63,8 +63,11 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
-
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        initialCell[indexPath.section] = !initialCell[indexPath.section]
+        tableView.reloadData()
+    }
     
     /*
     // MARK: - Navigation
