@@ -70,15 +70,21 @@ class ThemesTableViewController: UITableViewController {
             cell.clipsToBounds = true
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             cell.layer.cornerRadius = 20
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+//            cell.contentView.sendSubviewToBack(<#T##view: UIView##UIView#>)
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " with a value of: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
             cell.textLabel?.textAlignment = .center
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 2 {
             cell.textLabel?.text = "Magnitude: \(self.themes[indexPath.section].magnitude)"
             cell.textLabel?.textAlignment = .center
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         }
         } else {
             if indexPath.row == 0 {

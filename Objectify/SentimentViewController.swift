@@ -16,6 +16,8 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var coreSentences: [Item] = []
     
+    var doc: [Doc] = [] // bringing doc sentiment values as one of the core sentences here; also categories shoudl inserted here
+    
 //    var initialCell: Bool = true
     
     @IBOutlet weak var sentencesTableView: UITableView!

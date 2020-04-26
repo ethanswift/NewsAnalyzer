@@ -337,6 +337,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             
             let thirdVC = tbc.viewControllers![2] as! SentimentViewController
             thirdVC.items = items
+            thirdVC.doc = docs
             
             let forthVC = tbc.viewControllers![3] as! KeywordsTableViewController
             forthVC.items = items

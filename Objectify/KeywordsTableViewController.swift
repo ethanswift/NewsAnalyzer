@@ -62,6 +62,7 @@ class KeywordsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "keywordsCell", for: indexPath)
+        if initialCell[indexPath.section] == true {
         if indexPath.row == 0 {
             cell.textLabel?.text = self.keywords[indexPath.section].text
             cell.textLabel?.textAlignment = .center
@@ -77,6 +78,15 @@ class KeywordsTableViewController: UITableViewController {
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        } else {
+            if indexPath.row == 0 {
+                
+            } else if indexPath.row == 1 {
+                
+            } else if indexPath.row == 2 {
+                
+            }
         }
         // Configure the cell...
 

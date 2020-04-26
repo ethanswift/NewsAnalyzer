@@ -7,23 +7,41 @@
 //
 
 import UIKit
+import WebKit
 
-class WebSearchViewController: UIViewController {
+class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+    
+    @IBOutlet weak var webView: WKWebView!
     
     var items: [Item] = []
     
     var docs: [Doc] = []
     
     var categories: [Categories] = []
-    
-    //webView.allowsBackForwardNavigationGestures = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        let webConfig = WKWebViewConfiguration()
+        webView.frame = .zero
+        
+        webView = WKWebView(frame: .zero, configuration: webConfig)
+        
+        let url = "http://news.google.com/news?q=appreciated+apparent"
+        
+        webView.load(URLRequest(url: URL(fileURLWithPath: url)))
         // Do any additional setup after loading the view.
     }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.allowsBackForwardNavigationGestures = true
+    }
+    
+    func produceURL () {
+        
+    }
 
     /*
     // MARK: - Navigation
