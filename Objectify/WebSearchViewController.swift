@@ -18,6 +18,8 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
     var docs: [Doc] = []
     
     var categories: [Categories] = []
+    
+    var searchKeywords: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,8 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
         
         webView = WKWebView(frame: .zero, configuration: webConfig)
         
-        let url = "http://news.google.com/news?q=appreciated+apparent"
+        let query: String = produceURL()
+        let url = "http://news.google.com/news?q=\(query)"
         
         webView.load(URLRequest(url: URL(fileURLWithPath: url)))
         // Do any additional setup after loading the view.
@@ -39,8 +42,29 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
         webView.allowsBackForwardNavigationGestures = true
     }
     
-    func produceURL () {
-        
+    func fillSearchKeywords () {
+        for category in categories {
+            searchKeywords.append(category.categoryName)
+        }
+        for item in items {
+            if item.sentencePartType == "entity" {
+                searchKeywords.append(item.text)
+            } else if item.sentencePartType == "keyword" {
+                searchKeywords.append(item.text)
+            }
+        }
+    }
+    
+    func produceURL () -> String {
+        fillSearchKeywords()
+        var result: String = ""
+        if searchKeywords.count != 0 {
+            for searchKeyword in searchKeywords {
+                result = result + "\(searchKeyword)+"
+            }
+            result.removeLast()
+        }
+        return result
     }
 
     /*

@@ -14,8 +14,7 @@ class KeywordsTableViewController: UITableViewController {
     
     var keywords: [Item] = []
     
-    var initialCell: [Bool] = [true]
-    
+    var initialCell: [Bool] = []
     
     @IBOutlet weak var chartsButton: UIBarButtonItem!
     
@@ -23,6 +22,11 @@ class KeywordsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         fillKeywords()
+        
+        print("keywords: ", keywords)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         tableView.sectionHeaderHeight = 20
         tableView.rowHeight = UITableView.automaticDimension
@@ -40,17 +44,12 @@ class KeywordsTableViewController: UITableViewController {
         performSegue(withIdentifier: "goToKeywordsCharts", sender: self)
     }
     
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         fillKeywords()
-        if keywords.count != 0 {
-            return keywords.count
-        } else {
-            return 0
-        }
+        return keywords.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,8 +60,10 @@ class KeywordsTableViewController: UITableViewController {
     func fillKeywords () {
         if self.items.count != 0 {
             for item in items {
-                if item.sentencePartType == "keywords" {
+                if item.sentencePartType == "keyword" {
                     self.keywords.append(item)
+                    let initial = true
+                    self.initialCell.append(initial)
                 }
             }
         }
@@ -77,15 +78,24 @@ class KeywordsTableViewController: UITableViewController {
             cell.clipsToBounds = true
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             cell.layer.cornerRadius = 20
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Sentiment: " + " \(self.keywords[indexPath.section].sentimentResult) " + " with a value of: " + " \(self.keywords[indexPath.section].sentimentPolarity)" + " \(self.keywords[indexPath.section].sentimentValue)"
+            cell.textLabel?.text = "Sentiment: " + " \(self.keywords[indexPath.section].sentimentResult) " + " Value: " + " \(self.keywords[indexPath.section].sentimentPolarity)" + " \(self.keywords[indexPath.section].sentimentValue)"
             cell.textLabel?.textAlignment = .center
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 2 {
             cell.textLabel?.text = "Magnitude: \(self.keywords[indexPath.section].magnitude)"
             cell.textLabel?.textAlignment = .center
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         }
         } else {
             if indexPath.row == 0 {
@@ -157,11 +167,14 @@ class KeywordsTableViewController: UITableViewController {
     }
     */
 
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToKeywordsCharts" {
+            let vc = segue.destination as! KeywordsChartsViewController
+            vc.keywords = keywords
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

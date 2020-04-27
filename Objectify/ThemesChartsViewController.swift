@@ -18,6 +18,8 @@ class ThemesChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         updateBarChart()
         // Do any additional setup after loading the view.
     }
@@ -30,6 +32,8 @@ class ThemesChartsViewController: UIViewController {
             entries.append(entry)
             themesNames.append(theme.text)
         }
+        print(themesNames)
+        print(entries)
         let barChartDataSet = BarChartDataSet(entries: entries, label: "")
         barChartDataSet.drawValuesEnabled = false
 //        barChartDataSet.barBorderWidth
@@ -46,6 +50,7 @@ class ThemesChartsViewController: UIViewController {
         barChart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeInOutBounce)
         barChart.leftAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawGridLinesEnabled = false
+        barChart.notifyDataSetChanged()
     }
     
     

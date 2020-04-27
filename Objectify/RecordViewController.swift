@@ -49,20 +49,22 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: -Button Pressed
     
     @IBAction func recordButtonPressed(_ sender: UIButton) {
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            recordButton.isEnabled = false
-            recordButton.setTitle("Start Recording", for: .normal)
-            if transcriptionText != "" {
-                performSegue(withIdentifier: "goToTabBar", sender: self)
-            } else {
-                self.textView.text = "Nothing Has Been recorded! Try Again!"
-            }
-        } else {
-            startRecording()
-            recordButton.setTitle("Stop Recording", for: .normal)
-        }
+//        retrieveData()
+        performSegue(withIdentifier: "goToTabBar", sender: self)
+//        if audioEngine.isRunning {
+//            audioEngine.stop()
+//            recognitionRequest?.endAudio()
+//            recordButton.isEnabled = false
+//            recordButton.setTitle("Start Recording", for: .normal)
+//            if transcriptionText != "" {
+//                performSegue(withIdentifier: "goToTabBar", sender: self)
+//            } else {
+//                self.textView.text = "Nothing Has Been recorded! Try Again!"
+//            }
+//        } else {
+//            startRecording()
+//            recordButton.setTitle("Stop Recording", for: .normal)
+//        }
     }
     
     // MARK: -Speech Recognition
@@ -166,7 +168,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     // Retrieve API data and send them to tab bars
     
-    func retrieveDataFromAPI () {
+    func retrieveDataFromAPI (completion: () -> ()) {
         let url = "http://api.text2data.com/v3/analyze"
         let headers = ["Accept": "application/json",
                        "Content-Type": "application/json"]
@@ -180,14 +182,15 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                       "RequestIdentifier": "" ] as [String : Any]
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if response.error != nil || response.data == nil {
-                print(response.error!)
+                print("Client Error: ",response.error!.localizedDescription)
+                return
             }
-//            print("1###########################################",response.result.value!)
+
             do {
                 guard let json = try? JSON(data: response.data!) else {return}
-                print(json)
+                print("json recieved!")
                 if let autoCategories = json["AutoCategories"].array {
-//                    print("autoCategories #####################################",autoCategories)
+
                     for autoCategory in autoCategories {
                         let categoryName = autoCategory["CategoryName"].string ?? "Not Found"
                         let categoryNameScore = autoCategory["Score"].double ?? 0.0
@@ -196,7 +199,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                     }
                 }
                 if let coreSentences = json["CoreSentences"].array {
-//                    print(coreSentences)
+
                     for coreSentence in coreSentences {
                         let magnitude = coreSentence["Magnitude"].double ?? 0.0
                         let sentenceNumber = coreSentence["SentenceNumber"].double ?? 00
@@ -205,18 +208,19 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = coreSentence["SentimentValue"].double ?? 0.0
                         let text = coreSentence["Text"].string ?? "Not Found"
                         // text and sentence text are the same here
-                        let item = Item(sentenceText: text, sentencePartType: "CoreSentence", sentenceNumber: sentenceNumber, text: text, keywordType: "Sentence", mentions: 0.0, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResultString, sentimentValue: sentimentValue, magnitude: magnitude)
+                        let item = Item(sentenceText: text, sentencePartType: "coreSentence", sentenceNumber: sentenceNumber, text: text, keywordType: "Sentence", mentions: 0.0, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResultString, sentimentValue: sentimentValue, magnitude: magnitude)
                         self.items.append(item)
                     }
                 }
+                
                 let docSentimentPolarity = json["DocSentimentPolarity"].string ?? "Not Found"
-//                print(docSentimentPolarity)
+
                 let docSentimentResultString = json["DocSentimentResultString"].string ?? "Not Found"
-//                print(docSentimentResultString)
+
                 let docSentimentValue = json["DocSentimentValue"].double ?? 0.0
-//                print(docSentimentValue)
+
                 if let entities = json["Entities"].array {
-//                    print(entities)
+
                     for entity in entities {
                         let keywordType = entity["KeywordType"].string ?? "Not Found"
                         let magnitude = entity["Magnitude"].double ?? 0.0
@@ -228,11 +232,13 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = entity["SentimentValue"].double ?? 0.0
                         let text = entity["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+//                        print(item)
                         self.items.append(item)
                     }
                 }
+                
                 if let keywords = json["Keywords"].array {
-//                    print(keywords)
+
                     for keyword in keywords {
                         let keywordType = keyword["KeywordType"].string ?? "Not Found"
                         let magnitude = keyword["Magnitude"].double ?? 0.0
@@ -244,9 +250,11 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = keyword["SentimentValue"].double ?? 0.0
                         let text = keyword["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+//                        print(item)
                         self.items.append(item)
                     }
                 }
+                
                 let subjectivity = json["Subjectivity"].string ?? "Not Found"
                 let magnitude = json["Magnitude"].double ?? 0.0
                 let doc = Doc(docSentimentPolarity: docSentimentPolarity, docSentimentResultString: docSentimentResultString, docSentimentValue: docSentimentValue, subjectivity: subjectivity, magnitude: magnitude)
@@ -264,6 +272,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let magnitude = theme["Magnitude"].double ?? 0.0
                         let text = theme["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
+//                        print(item)
                         self.items.append(item)
                     }
                 }
@@ -284,7 +293,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 //            if response.error != nil {
 //                print(response.error!)
 //            }
-//            print("2###########################################",response.result.value!)
+
 //            do {
 //                guard let json = try? JSON(data: response.data!) else {return}
 //                print(json)
@@ -306,7 +315,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 //            if response.error != nil {
 //                print(response.error!)
 //            }
-//            print("3###########################################",response.result.value!)
+
 //            do {
 //                guard let json = try? JSON(data: response.data!) else {return}
 //                print(json)
@@ -315,7 +324,9 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 //    }
     
     func retrieveData () {
-        retrieveDataFromAPI()
+        retrieveDataFromAPI() {
+            performSegue(withIdentifier: "goToTabBar", sender: self)
+        }
 //        retrieveDataForEmotion()
 //        retrieveDataForEntities()
     }
@@ -324,26 +335,34 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("items: -------------------------" ,self.items)
+//        print(self.items[0].keywordType)
+//        print("docs: ---------------------------" ,self.docs)
+//        print("categories: -------------------------" ,self.categories)
         if segue.identifier == "goToTabBar" {
             let tbc = segue.destination as! UITabBarController
             
-            let firstVC = tbc.viewControllers![0] as! WebSearchViewController
+            let firstVC = tbc.viewControllers![4] as! WebSearchViewController
             firstVC.items = items
             firstVC.categories = categories
             firstVC.docs = docs
             
-            let secondVC = tbc.viewControllers![1] as! ResultViewController
-            secondVC.items = items
+            let secondVC = tbc.viewControllers![0] as! UINavigationController
+            let secondNavVC = secondVC.topViewController as! ResultViewController
+            secondNavVC.items = items
             
-            let thirdVC = tbc.viewControllers![2] as! SentimentViewController
-            thirdVC.items = items
-            thirdVC.doc = docs
+            let thirdVC = tbc.viewControllers![1] as! UINavigationController
+            let thirdNavVC = thirdVC.topViewController as! SentimentViewController
+            thirdNavVC.items = items
+            thirdNavVC.doc = docs
             
-            let forthVC = tbc.viewControllers![3] as! KeywordsTableViewController
-            forthVC.items = items
+            let forthVC = tbc.viewControllers![2] as! UINavigationController
+            let forthNavVC = forthVC.topViewController as! KeywordsTableViewController
+            forthNavVC.items = items
             
-            let fifthVC = tbc.viewControllers![4] as! ThemesTableViewController
-            fifthVC.items = items
+            let fifthVC = tbc.viewControllers![3] as! UINavigationController
+            let fifthNavVC = fifthVC.topViewController as! ThemesTableViewController
+            fifthNavVC.items = items
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

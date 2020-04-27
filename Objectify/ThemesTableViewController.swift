@@ -14,22 +14,26 @@ class ThemesTableViewController: UITableViewController {
     
     var themes: [Item] = []
     
-    var initialCell: [Bool] = [true]
+    var initialCell: [Bool] = []
     
     @IBOutlet weak var chartsButton: UIBarButtonItem!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillThemes()
+        
+        print("themes: ", themes)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
 //        tableView.sectionFooterHeight = 20
         tableView.sectionHeaderHeight = 20
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 40
         tableView.separatorStyle = .none
-        
-        fillThemes()
-
+ 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -61,8 +65,10 @@ class ThemesTableViewController: UITableViewController {
     func fillThemes () {
         if self.items.count != 0 {
             for item in self.items {
-                if item.sentencePartType == "themes" {
+                if item.sentencePartType == "theme" {
                     self.themes.append(item)
+                    let initial = true
+                    self.initialCell.append(initial)
                 }
             }
         }
@@ -82,8 +88,10 @@ class ThemesTableViewController: UITableViewController {
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
 //            cell.contentView.sendSubviewToBack(<#T##view: UIView##UIView#>)
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " with a value of: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
+            cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " Value: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
             cell.textLabel?.textAlignment = .center
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 2 {
             cell.textLabel?.text = "Magnitude: \(self.themes[indexPath.section].magnitude)"
@@ -91,18 +99,22 @@ class ThemesTableViewController: UITableViewController {
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         }
         } else {
-            if indexPath.row == 0 {
+            if indexPath.row == 1 {
                 cell.textLabel?.text = self.themes[indexPath.section].sentenceText
                 cell.textLabel?.textAlignment = .center
                 cell.clipsToBounds = true
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, ]
                 cell.layer.cornerRadius = 20
-            } else if indexPath.row == 1 {
-                
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             } else if indexPath.row == 2 {
+                
+            } else if indexPath.row == 3 {
                 
             }
         }
@@ -172,6 +184,10 @@ class ThemesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToThemesCharts" {
+            let vc = segue.destination as! ThemesChartsViewController
+            vc.themes = themes
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

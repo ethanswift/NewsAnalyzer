@@ -15,10 +15,9 @@ class KeywordsChartsViewController: UIViewController {
     
     @IBOutlet weak var barChart: BarChartView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateBarChart()
         // Do any additional setup after loading the view.
     }
     
@@ -46,6 +45,7 @@ class KeywordsChartsViewController: UIViewController {
         barChart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeInOutBounce)
         barChart.leftAxis.drawGridLinesEnabled = false
         barChart.rightAxis.drawGridLinesEnabled = false
+        barChart.notifyDataSetChanged()
     }
     
 
