@@ -15,6 +15,9 @@ class ThemesTableViewController: UITableViewController {
     var themes: [Item] = []
     
     var initialCell: [Bool] = [true]
+    
+    @IBOutlet weak var chartsButton: UIBarButtonItem!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,10 @@ class ThemesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @IBAction func chartsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToThemesCharts", sender: self)
     }
 
     // MARK: - Table view data source
@@ -160,7 +167,7 @@ class ThemesTableViewController: UITableViewController {
     }
     */
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -168,7 +175,6 @@ class ThemesTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
 

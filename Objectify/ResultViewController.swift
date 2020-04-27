@@ -18,6 +18,8 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
     
     var initialCell: [Bool] = [true]
     
+    @IBOutlet weak var chartsButton: UIBarButtonItem!
+    
     @IBOutlet weak var entitiesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -34,6 +36,11 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func chartsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToEntitiesCharts", sender: self)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -69,7 +76,7 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -77,6 +84,6 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+   
 
 }

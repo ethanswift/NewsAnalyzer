@@ -15,7 +15,10 @@ class KeywordsTableViewController: UITableViewController {
     var keywords: [Item] = []
     
     var initialCell: [Bool] = [true]
-
+    
+    
+    @IBOutlet weak var chartsButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,11 @@ class KeywordsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func chartsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToKeywordsCharts", sender: self)
+    }
+    
 
     // MARK: - Table view data source
 
@@ -149,7 +157,7 @@ class KeywordsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -157,6 +165,5 @@ class KeywordsTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

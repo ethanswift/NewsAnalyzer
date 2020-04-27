@@ -97,9 +97,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Fvs-hn-xTD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="P8L-QO-ArO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="P8L-QO-ArO">
+                            <connections>
+                                <action selector="chartsButtonPressed:" destination="7LV-hX-HYp" id="CgA-l8-kP8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartsButton" destination="P8L-QO-ArO" id="3aL-jG-xG6"/>
                         <segue destination="iPA-ID-NQ3" kind="presentation" identifier="goToThemesCharts" id="dxj-wK-jzQ"/>
                     </connections>
                 </tableViewController>
@@ -107,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="4952.8000000000002" y="-1662.8185907046477"/>
         </scene>
-        <!--View Controller-->
+        <!--Themes Charts View Controller-->
         <scene sceneID="iFw-rO-c0T">
             <objects>
-                <viewController id="iPA-ID-NQ3" sceneMemberID="viewController">
+                <viewController id="iPA-ID-NQ3" customClass="ThemesChartsViewController" customModule="Objectify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAt-Gd-7F1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,6 +134,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EDT-hC-7Pf"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="Vzm-8u-mdn" id="EI0-76-t61"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pm7-oN-6at" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,9 +166,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="t6k-js-mQO">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="IwK-j4-uOm"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="IwK-j4-uOm">
+                            <connections>
+                                <action selector="chartsButtonPressed:" destination="UP7-Po-Ejh" id="2ML-jN-hqp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartsButton" destination="IwK-j4-uOm" id="WYJ-fZ-ocX"/>
                         <segue destination="Bpj-IM-qkH" kind="presentation" identifier="goToKeywordsCharts" id="ZL3-B2-rBI"/>
                     </connections>
                 </tableViewController>
@@ -217,9 +230,14 @@
                         <viewLayoutGuide key="safeArea" id="xRO-m0-TL2"/>
                     </view>
                     <navigationItem key="navigationItem" id="RkX-ij-u1T">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1by-Tf-LNh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="1by-Tf-LNh">
+                            <connections>
+                                <action selector="chartsButtonPressed:" destination="yMY-7h-fzW" id="rc2-hc-Gwq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartsButton" destination="1by-Tf-LNh" id="13W-we-uL9"/>
                         <outlet property="sentencesTableView" destination="8Fr-fb-biN" id="unh-Tq-y15"/>
                         <segue destination="ctt-TE-5cJ" kind="presentation" identifier="goToSentencesCharts" id="5sZ-o5-dNI"/>
                     </connections>
@@ -228,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="4953" y="-107"/>
         </scene>
-        <!--View Controller-->
+        <!--Sentences Charts View Controller-->
         <scene sceneID="K9d-EW-vE7">
             <objects>
-                <viewController id="ctt-TE-5cJ" sceneMemberID="viewController">
+                <viewController id="ctt-TE-5cJ" customClass="SentencesChartsViewController" customModule="Objectify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh8-rG-wwO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +268,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t6G-c8-VTa"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="gO7-Av-i1E" id="PeT-6y-2GJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB0-Ri-Eog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -304,9 +325,14 @@
                         <viewLayoutGuide key="safeArea" id="467-yf-YQO"/>
                     </view>
                     <navigationItem key="navigationItem" id="10s-dR-Ald">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="mN1-7d-NcS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="mN1-7d-NcS">
+                            <connections>
+                                <action selector="chartsButtonPressed:" destination="zFn-b2-1se" id="yXL-d2-M8c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartsButton" destination="mN1-7d-NcS" id="zKO-ug-bEK"/>
                         <outlet property="entitiesTableView" destination="Y6U-IJ-qyq" id="sDl-yK-Goq"/>
                         <segue destination="UpP-SC-jdn" kind="presentation" identifier="goToEntitiesCharts" id="Zg8-nX-ixR"/>
                     </connections>
@@ -315,10 +341,10 @@
             </objects>
             <point key="canvasLocation" x="4952.8000000000002" y="644.52773613193403"/>
         </scene>
-        <!--View Controller-->
+        <!--Entities Charts View Controller-->
         <scene sceneID="ttC-WG-NzB">
             <objects>
-                <viewController id="UpP-SC-jdn" sceneMemberID="viewController">
+                <viewController id="UpP-SC-jdn" customClass="EntitiesChartsViewController" customModule="Objectify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BdX-cn-ggH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,6 +363,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qct-co-rAI"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="ta5-Ga-D28" id="bIN-Ke-NFT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwJ-Fe-Q4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -456,10 +485,10 @@
             </objects>
             <point key="canvasLocation" x="4013.5999999999999" y="644.52773613193403"/>
         </scene>
-        <!--View Controller-->
+        <!--Keywords Charts View Controller-->
         <scene sceneID="cWT-E4-pSE">
             <objects>
-                <viewController id="Bpj-IM-qkH" sceneMemberID="viewController">
+                <viewController id="Bpj-IM-qkH" customClass="KeywordsChartsViewController" customModule="Objectify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kKm-ON-7G7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -478,6 +507,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JiZ-1o-1Li"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="PLy-4B-Q3H" id="SFl-RT-pbd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzb-ss-CiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

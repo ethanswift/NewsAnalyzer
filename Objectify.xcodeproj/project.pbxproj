@@ -21,6 +21,10 @@
 		C09939A224502B1300C768C2 /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09939A124502B1300C768C2 /* Doc.swift */; };
 		C09939A424502B5000C768C2 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09939A324502B5000C768C2 /* Categories.swift */; };
 		C0F8456E2454A0A000780563 /* WebSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8456D2454A0A000780563 /* WebSearchViewController.swift */; };
+		C0F8457024557B4A00780563 /* ThemesChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8456F24557B4A00780563 /* ThemesChartsViewController.swift */; };
+		C0F8457224557B5E00780563 /* KeywordsChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */; };
+		C0F8457424557B8500780563 /* SentencesChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457324557B8500780563 /* SentencesChartsViewController.swift */; };
+		C0F8457624557BA400780563 /* EntitiesChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */; };
 		E5E44B2CE134AA417301CEB2 /* Pods_Objectify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD8026029B0CBB7C32ABEB7 /* Pods_Objectify.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 		C09939A324502B5000C768C2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		C0F8456C2454399100780563 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C0F8456D2454A0A000780563 /* WebSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearchViewController.swift; sourceTree = "<group>"; };
+		C0F8456F24557B4A00780563 /* ThemesChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesChartsViewController.swift; sourceTree = "<group>"; };
+		C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsChartsViewController.swift; sourceTree = "<group>"; };
+		C0F8457324557B8500780563 /* SentencesChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesChartsViewController.swift; sourceTree = "<group>"; };
+		C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesChartsViewController.swift; sourceTree = "<group>"; };
 		CAD4CF97EDC014F2AA15FCCE /* Pods-Objectify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.release.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.release.xcconfig"; sourceTree = "<group>"; };
 		F24029BD2DD588BEC01F9609 /* Pods-Objectify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.debug.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,9 +102,13 @@
 				C0117F072420D8B8009C1D42 /* ViewController.swift */,
 				C0117F092420D8B8009C1D42 /* Main.storyboard */,
 				C099399D244FED0500C768C2 /* ThemesTableViewController.swift */,
+				C0F8456F24557B4A00780563 /* ThemesChartsViewController.swift */,
 				C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */,
+				C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */,
 				C0993995244AD20C00C768C2 /* SentimentViewController.swift */,
+				C0F8457324557B8500780563 /* SentencesChartsViewController.swift */,
 				C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */,
+				C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */,
 				C0F8456D2454A0A000780563 /* WebSearchViewController.swift */,
 				C0117F1724222F02009C1D42 /* RecordViewController.swift */,
 				C099399F244FF50E00C768C2 /* Item.swift */,
@@ -232,16 +244,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F8457424557B8500780563 /* SentencesChartsViewController.swift in Sources */,
 				C0993996244AD20C00C768C2 /* SentimentViewController.swift in Sources */,
 				C09939A0244FF50E00C768C2 /* Item.swift in Sources */,
+				C0F8457024557B4A00780563 /* ThemesChartsViewController.swift in Sources */,
 				C0117F1824222F02009C1D42 /* RecordViewController.swift in Sources */,
 				C0F8456E2454A0A000780563 /* WebSearchViewController.swift in Sources */,
 				C0117F082420D8B8009C1D42 /* ViewController.swift in Sources */,
+				C0F8457624557BA400780563 /* EntitiesChartsViewController.swift in Sources */,
 				C0117F062420D8B8009C1D42 /* AppDelegate.swift in Sources */,
 				C09939A424502B5000C768C2 /* Categories.swift in Sources */,
 				C099399C244FEBF200C768C2 /* KeywordsTableViewController.swift in Sources */,
 				C0117F1C2428AFBA009C1D42 /* ResultViewController.swift in Sources */,
 				C09939A224502B1300C768C2 /* Doc.swift in Sources */,
+				C0F8457224557B5E00780563 /* KeywordsChartsViewController.swift in Sources */,
 				C099399E244FED0500C768C2 /* ThemesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
