@@ -1,5 +1,5 @@
 //
-//  EntitiesChartsViewController.swift
+//  SentencesChartsViewController.swift
 //  Objectify
 //
 //  Created by ehsan sat on 4/26/20.
@@ -9,32 +9,32 @@
 import UIKit
 import Charts
 
-class EntitiesChartsViewController: UIViewController {
-    
-    var entities: [Item] = []
+class SentencesChartsViewController: UIViewController {
     
     @IBOutlet weak var barChart: BarChartView!
     
+    var coreSentences: [Item] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateBarChart()
-
+        
         // Do any additional setup after loading the view.
     }
     
     func updateBarChart () {
         var entries: [ChartDataEntry] = []
-        var entitiesNames: [String] = []
-        for (index, entities) in self.entities.enumerated() {
-            let entry = BarChartDataEntry(x: Double(exactly: index)!, y: entities.sentimentValue)
+        var sentencesNumber: [String] = []
+        for (index, coreSentence) in self.coreSentences.enumerated() {
+            let entry = BarChartDataEntry(x: Double(exactly: index)!, y: (coreSentence.sentimentPolarity == "+" ? coreSentence.sentimentValue : -coreSentence.sentimentValue))
             entries.append(entry)
-            entitiesNames.append(entities.text)
+            sentencesNumber.append("\(coreSentence.sentenceNumber)")
         }
-        print(entitiesNames)
+        print(sentencesNumber)
         print(entries)
         let barChartDataSet = BarChartDataSet(entries: entries, label: "")
-        barChartDataSet.drawValuesEnabled = true
+        barChartDataSet.drawValuesEnabled = false
         //        barChartDataSet.barBorderWidth
         //        barChartDataSet.barBorderWidth
         //        barChartDataSet.barShadowColor
@@ -43,7 +43,7 @@ class EntitiesChartsViewController: UIViewController {
         let barChartData = BarChartData(dataSet: barChartDataSet)
         barChart.data = barChartData
         barChart.legend.enabled = true
-        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: entitiesNames)
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: sentencesNumber)
         barChart.xAxis.granularityEnabled = true
         barChart.xAxis.granularity = 1
         barChart.animate(xAxisDuration: 3.0, yAxisDuration: 3.0, easingOption: .easeInOutBounce)
@@ -52,7 +52,6 @@ class EntitiesChartsViewController: UIViewController {
         barChart.notifyDataSetChanged()
     }
     
-
     /*
     // MARK: - Navigation
 

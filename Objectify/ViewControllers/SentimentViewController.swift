@@ -30,10 +30,10 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         
         fillCoreSentences()
         
-        print("core sentences: ", coreSentences)
-        
         sentencesTableView.delegate = self
         sentencesTableView.dataSource = self
+        
+        sentencesTableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
         
         //                entitiesTableView.sectionFooterHeight = 20
         sentencesTableView.sectionHeaderHeight = 20
@@ -59,6 +59,16 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sentimentCell", for: indexPath)
+        if self.coreSentences[indexPath.section].sentimentResult == "positive" {
+            cell.backgroundColor = #colorLiteral(red: 0.2040559649, green: 0.7372421622, blue: 0.6007294059, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        } else if self.coreSentences[indexPath.section].sentimentResult == "neutral" {
+            cell.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 0.1490027606, green: 0.1490303874, blue: 0.1489966214, alpha: 1)
+        } else if self.coreSentences[indexPath.section].sentimentResult == "negative" {
+            cell.backgroundColor = #colorLiteral(red: 0.920953393, green: 0.447560966, blue: 0.4741248488, alpha: 1)
+            cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         if indexPath.row == 0 {
             cell.textLabel?.text = self.coreSentences[indexPath.section].text
             cell.textLabel?.textAlignment = .center
@@ -68,7 +78,6 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-            //            cell.contentView.sendSubviewToBack(<#T##view: UIView##UIView#>)
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "Sentiment: " + " \(self.coreSentences[indexPath.section].sentimentResult) " + " Value: " + " \(self.coreSentences[indexPath.section].sentimentPolarity)" + " \(self.coreSentences[indexPath.section].sentimentValue)"
             cell.textLabel?.textAlignment = .center

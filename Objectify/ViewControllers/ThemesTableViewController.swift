@@ -23,8 +23,6 @@ class ThemesTableViewController: UITableViewController {
         
         fillThemes()
         
-        print("themes: ", themes)
-        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -33,6 +31,7 @@ class ThemesTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 40
         tableView.separatorStyle = .none
+        tableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
  
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -49,7 +48,6 @@ class ThemesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        fillThemes()
         if self.themes.count != 0 {
             return themes.count
         } else {
@@ -77,6 +75,16 @@ class ThemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "themesCell", for: indexPath)
         if initialCell[indexPath.section] == true {
+            if self.themes[indexPath.section].sentimentResult == "positive" {
+                cell.backgroundColor = #colorLiteral(red: 0.2040559649, green: 0.7372421622, blue: 0.6007294059, alpha: 1)
+                cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            } else if self.themes[indexPath.section].sentimentResult == "neutral" {
+                cell.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+                cell.textLabel?.textColor = #colorLiteral(red: 0.1490027606, green: 0.1490303874, blue: 0.1489966214, alpha: 1)
+            } else if self.themes[indexPath.section].sentimentResult == "negative" {
+                cell.backgroundColor = #colorLiteral(red: 0.920953393, green: 0.447560966, blue: 0.4741248488, alpha: 1)
+                cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            }
         if indexPath.row == 0 {
             cell.textLabel?.text = self.themes[indexPath.section].text
             cell.textLabel?.textAlignment = .center
@@ -86,7 +94,6 @@ class ThemesTableViewController: UITableViewController {
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-//            cell.contentView.sendSubviewToBack(<#T##view: UIView##UIView#>)
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " Value: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
             cell.textLabel?.textAlignment = .center
@@ -104,22 +111,26 @@ class ThemesTableViewController: UITableViewController {
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         }
         } else {
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 cell.textLabel?.text = self.themes[indexPath.section].sentenceText
                 cell.textLabel?.textAlignment = .center
                 cell.clipsToBounds = true
-                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, ]
+                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
                 cell.layer.cornerRadius = 20
                 cell.textLabel?.numberOfLines = 0
                 cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            } else if indexPath.row == 1 {
+                cell.textLabel?.text = ""
+                cell.textLabel?.numberOfLines = 0
             } else if indexPath.row == 2 {
-                
-            } else if indexPath.row == 3 {
-                
+                cell.textLabel?.text = ""
+                cell.textLabel?.numberOfLines = 0 
+                cell.clipsToBounds = true
+                cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                cell.layer.cornerRadius = 20
             }
         }
         // Configure the cell...
-
         return cell
     }
     

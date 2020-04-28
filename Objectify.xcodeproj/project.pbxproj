@@ -101,24 +101,48 @@
 				C0117F052420D8B8009C1D42 /* AppDelegate.swift */,
 				C0117F072420D8B8009C1D42 /* ViewController.swift */,
 				C0117F092420D8B8009C1D42 /* Main.storyboard */,
-				C099399D244FED0500C768C2 /* ThemesTableViewController.swift */,
-				C0F8456F24557B4A00780563 /* ThemesChartsViewController.swift */,
-				C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */,
-				C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */,
-				C0993995244AD20C00C768C2 /* SentimentViewController.swift */,
-				C0F8457324557B8500780563 /* SentencesChartsViewController.swift */,
-				C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */,
-				C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */,
-				C0F8456D2454A0A000780563 /* WebSearchViewController.swift */,
-				C0117F1724222F02009C1D42 /* RecordViewController.swift */,
-				C099399F244FF50E00C768C2 /* Item.swift */,
-				C09939A324502B5000C768C2 /* Categories.swift */,
-				C09939A124502B1300C768C2 /* Doc.swift */,
+				C0F84577245847D800780563 /* ViewControllers */,
+				C0F845782458482400780563 /* Charts */,
+				C0F845792458484200780563 /* Model */,
 				C0117F0C2420D8BB009C1D42 /* Assets.xcassets */,
 				C0117F0E2420D8BB009C1D42 /* LaunchScreen.storyboard */,
 				C0117F112420D8BB009C1D42 /* Info.plist */,
 			);
 			path = Objectify;
+			sourceTree = "<group>";
+		};
+		C0F84577245847D800780563 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C099399D244FED0500C768C2 /* ThemesTableViewController.swift */,
+				C099399B244FEBF200C768C2 /* KeywordsTableViewController.swift */,
+				C0993995244AD20C00C768C2 /* SentimentViewController.swift */,
+				C0117F1B2428AFBA009C1D42 /* ResultViewController.swift */,
+				C0F8456D2454A0A000780563 /* WebSearchViewController.swift */,
+				C0117F1724222F02009C1D42 /* RecordViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C0F845782458482400780563 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				C0F8456F24557B4A00780563 /* ThemesChartsViewController.swift */,
+				C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */,
+				C0F8457324557B8500780563 /* SentencesChartsViewController.swift */,
+				C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		C0F845792458484200780563 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C099399F244FF50E00C768C2 /* Item.swift */,
+				C09939A324502B5000C768C2 /* Categories.swift */,
+				C09939A124502B1300C768C2 /* Doc.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CA3BF54EA11FC51AA705A6FE /* Frameworks */ = {

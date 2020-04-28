@@ -105,7 +105,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartsButton" destination="P8L-QO-ArO" id="3aL-jG-xG6"/>
-                        <segue destination="iPA-ID-NQ3" kind="presentation" identifier="goToThemesCharts" modalPresentationStyle="pageSheet" id="dxj-wK-jzQ"/>
+                        <segue destination="iPA-ID-NQ3" kind="show" identifier="goToThemesCharts" id="dxj-wK-jzQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdt-zF-MhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzm-8u-mdn" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -174,7 +174,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartsButton" destination="IwK-j4-uOm" id="WYJ-fZ-ocX"/>
-                        <segue destination="Bpj-IM-qkH" kind="presentation" identifier="goToKeywordsCharts" modalPresentationStyle="pageSheet" id="ZL3-B2-rBI"/>
+                        <segue destination="Bpj-IM-qkH" kind="show" identifier="goToKeywordsCharts" id="ZL3-B2-rBI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4Z-do-izi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,7 +223,7 @@
                     <connections>
                         <outlet property="chartsButton" destination="1by-Tf-LNh" id="13W-we-uL9"/>
                         <outlet property="sentencesTableView" destination="8Fr-fb-biN" id="unh-Tq-y15"/>
-                        <segue destination="ctt-TE-5cJ" kind="presentation" identifier="goToSentencesCharts" modalPresentationStyle="pageSheet" id="5sZ-o5-dNI"/>
+                        <segue destination="ctt-TE-5cJ" kind="show" identifier="goToSentencesCharts" id="5sZ-o5-dNI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUY-ND-a6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-Av-i1E" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -302,7 +302,7 @@
                     <connections>
                         <outlet property="chartsButton" destination="mN1-7d-NcS" id="zKO-ug-bEK"/>
                         <outlet property="entitiesTableView" destination="Y6U-IJ-qyq" id="sDl-yK-Goq"/>
-                        <segue destination="UpP-SC-jdn" kind="presentation" identifier="goToEntitiesCharts" modalPresentationStyle="pageSheet" id="Zg8-nX-ixR"/>
+                        <segue destination="UpP-SC-jdn" kind="show" identifier="goToEntitiesCharts" id="Zg8-nX-ixR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiK-vK-iU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,7 +318,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ta5-Ga-D28" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -462,7 +462,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLy-4B-Q3H" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>

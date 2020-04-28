@@ -153,7 +153,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
         
         textView.text = "Say Something I'm Listening"
-
+        
     }
     
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
@@ -232,7 +232,6 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = entity["SentimentValue"].double ?? 0.0
                         let text = entity["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
-//                        print(item)
                         self.items.append(item)
                     }
                 }
@@ -250,7 +249,6 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let sentimentValue = keyword["SentimentValue"].double ?? 0.0
                         let text = keyword["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
-//                        print(item)
                         self.items.append(item)
                     }
                 }
@@ -272,7 +270,6 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let magnitude = theme["Magnitude"].double ?? 0.0
                         let text = theme["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
-//                        print(item)
                         self.items.append(item)
                     }
                 }
@@ -335,10 +332,6 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        print("items: -------------------------" ,self.items)
-//        print(self.items[0].keywordType)
-//        print("docs: ---------------------------" ,self.docs)
-//        print("categories: -------------------------" ,self.categories)
         if segue.identifier == "goToTabBar" {
             let tbc = segue.destination as! UITabBarController
             

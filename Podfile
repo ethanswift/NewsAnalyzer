@@ -9,5 +9,5 @@ target 'Objectify' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'Charts', '3.4.0'
-    
+    pod "Gradients"
 end

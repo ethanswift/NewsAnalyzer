@@ -17,15 +17,21 @@ class KeywordsChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.dismissView(gesture:)))
         updateBarChart()
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func dismissView (gesture: UISwipeGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func updateBarChart () {
         var entries: [ChartDataEntry] = []
         var keywordsNames: [String] = []
         for (index, keyword) in self.keywords.enumerated() {
-            let entry = BarChartDataEntry(x: Double(exactly: index)!, y: keyword.sentimentValue)
+            let entry = BarChartDataEntry(x: Double(exactly: index)!, y: (keyword.sentimentPolarity == "+" ? keyword.sentimentValue : -keyword.sentimentValue))
             entries.append(entry)
             keywordsNames.append(keyword.text)
         }
