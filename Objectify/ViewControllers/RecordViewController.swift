@@ -39,6 +39,15 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         retrieveData()
         
+        self.view.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        recordButton.layer.cornerRadius = 50
+        recordButton.layer.backgroundColor = #colorLiteral(red: 0.7242990732, green: 0.7850584388, blue: 0.9598841071, alpha: 1)
+        recordButton.setTitleColor(#colorLiteral(red: 0.2265214622, green: 0.2928299606, blue: 0.5221264958, alpha: 1), for: .normal)
+        
+        textView.layer.cornerRadius = 25
+        textView.layer.backgroundColor = #colorLiteral(red: 0.2389388382, green: 0.5892125368, blue: 0.8818323016, alpha: 1)
+        textView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         recordButton.isEnabled = false
         requestAuthorization()
         speechRecognizer?.delegate = self

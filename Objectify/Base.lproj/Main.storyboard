@@ -97,7 +97,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Fvs-hn-xTD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="P8L-QO-ArO">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="stats_column_chart" id="P8L-QO-ArO">
                             <connections>
                                 <action selector="chartsButtonPressed:" destination="7LV-hX-HYp" id="CgA-l8-kP8"/>
                             </connections>
@@ -166,7 +166,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="t6k-js-mQO">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="IwK-j4-uOm">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="stats_column_chart" id="IwK-j4-uOm">
                             <connections>
                                 <action selector="chartsButtonPressed:" destination="UP7-Po-Ejh" id="2ML-jN-hqp"/>
                             </connections>
@@ -214,7 +214,7 @@
                         <viewLayoutGuide key="safeArea" id="xRO-m0-TL2"/>
                     </view>
                     <navigationItem key="navigationItem" id="RkX-ij-u1T">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1by-Tf-LNh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="stats_column_chart" id="1by-Tf-LNh">
                             <connections>
                                 <action selector="chartsButtonPressed:" destination="yMY-7h-fzW" id="rc2-hc-Gwq"/>
                             </connections>
@@ -293,7 +293,7 @@
                         <viewLayoutGuide key="safeArea" id="467-yf-YQO"/>
                     </view>
                     <navigationItem key="navigationItem" id="10s-dR-Ald">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="mN1-7d-NcS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="stats_column_chart" id="mN1-7d-NcS">
                             <connections>
                                 <action selector="chartsButtonPressed:" destination="zFn-b2-1se" id="yXL-d2-M8c"/>
                             </connections>
@@ -365,7 +365,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ja-Wg-eNb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="QGj-1J-bef"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="preview" id="QGj-1J-bef"/>
                     <connections>
                         <outlet property="webView" destination="AnW-o5-mk7" id="tEr-8C-8Zx"/>
                     </connections>
@@ -400,7 +400,7 @@
         <scene sceneID="KLQ-jb-DlO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5n8-c4-7cH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qgc-mn-As2"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="osi_model" id="qgc-mn-As2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7w8-y6-dVd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -419,7 +419,7 @@
         <scene sceneID="gru-06-hdn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ijf-VH-8x7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4SI-Qq-smD"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="key" id="4SI-Qq-smD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="keU-iM-zRq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -438,7 +438,7 @@
         <scene sceneID="QT5-ZF-lmo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wj8-Tz-m2c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fSy-zk-sO2"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="Image" id="fSy-zk-sO2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ht2-1F-ljh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -487,7 +487,7 @@
         <scene sceneID="Hl8-Yo-JbA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ohI-1e-8WB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="SWg-3q-jgf"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="view_list" id="SWg-3q-jgf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GzZ-0m-3aM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -503,4 +503,12 @@
             <point key="canvasLocation" x="4013.5999999999999" y="-107.49625187406298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="64" height="64"/>
+        <image name="key" width="64" height="64"/>
+        <image name="osi_model" width="64" height="64"/>
+        <image name="preview" width="64" height="64"/>
+        <image name="stats_column_chart" width="64" height="64"/>
+        <image name="view_list" width="64" height="64"/>
+    </resources>
 </document>
