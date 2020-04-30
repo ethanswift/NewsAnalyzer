@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeywordsTableViewController: UITableViewController {
+class KeywordsTableViewController: UITableViewController, UITabBarControllerDelegate {
     
     var items: [Item] = []
     
@@ -25,12 +25,16 @@ class KeywordsTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tabBarController?.delegate = self
         
         tableView.sectionHeaderHeight = 20
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 40
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        
+        self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)!], for: .normal)
+        self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "key")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -185,6 +189,12 @@ class KeywordsTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.tabBarController?.tabBar.frame.size.height = 80
+        self.tabBarController?.tabBar.frame.origin.y = view.frame.height - 80
+    }
 
     // MARK: - Navigation
 

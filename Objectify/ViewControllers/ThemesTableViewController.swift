@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemesTableViewController: UITableViewController {
+class ThemesTableViewController: UITableViewController, UITabBarControllerDelegate {
     
     var items: [Item] = []
     
@@ -25,6 +25,7 @@ class ThemesTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tabBarController?.delegate = self
 
 //        tableView.sectionFooterHeight = 20
         tableView.sectionHeaderHeight = 20
@@ -32,6 +33,10 @@ class ThemesTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 40
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        
+        self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)], for: .normal)
+        self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "osi_model")
+       
  
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

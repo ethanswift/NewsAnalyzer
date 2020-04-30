@@ -10,7 +10,7 @@ import UIKit
 
 // core sentences table view
 
-class SentimentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SentimentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
 
     var items: [Item] = []
     
@@ -32,6 +32,7 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         
         sentencesTableView.delegate = self
         sentencesTableView.dataSource = self
+        tabBarController?.delegate = self
         
         sentencesTableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
         
@@ -40,6 +41,9 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         sentencesTableView.rowHeight = UITableView.automaticDimension
         sentencesTableView.estimatedRowHeight = 40
         sentencesTableView.separatorStyle = .none
+        
+        self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)], for: .normal)
+        self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "view_list")
    
         // Do any additional setup after loading the view.
     }

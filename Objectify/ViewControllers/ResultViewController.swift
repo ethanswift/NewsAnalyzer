@@ -12,7 +12,7 @@ import Alamofire
 
 // entities table view
 
-class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ResultViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate {
 
     var items: [Item] = []
     
@@ -31,15 +31,18 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         
         entitiesTableView.delegate = self
         entitiesTableView.dataSource = self
+        tabBarController?.delegate = self
         
         entitiesTableView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
         
-//                entitiesTableView.sectionFooterHeight = 20
         entitiesTableView.sectionHeaderHeight = 20 
         entitiesTableView.rowHeight = UITableView.automaticDimension
         entitiesTableView.estimatedRowHeight = 40
         entitiesTableView.separatorStyle = .none
-
+        
+        self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)!], for: .normal)
+        self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "Image")
+        
         // Do any additional setup after loading the view.
     }
     
