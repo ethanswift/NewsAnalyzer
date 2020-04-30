@@ -23,18 +23,23 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillSearchKeywords()
 
         webView.navigationDelegate = self
         webView.uiDelegate = self
-        let webConfig = WKWebViewConfiguration()
-        webView.frame = .zero
         
-        webView = WKWebView(frame: .zero, configuration: webConfig)
+        webView.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+//        let webConfig = WKWebViewConfiguration()
+//        webView.frame = .zero
+//
+//        webView = WKWebView(frame: .zero, configuration: webConfig)
         
         let query: String = produceURL()
         let url = "http://news.google.com/news?q=\(query)"
+        print(url) // words with space
         
-        webView.load(URLRequest(url: URL(fileURLWithPath: url)))
+        webView.load(URLRequest(url: URL(string: url)!))
         // Do any additional setup after loading the view.
     }
     
@@ -56,11 +61,10 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
     }
     
     func produceURL () -> String {
-        fillSearchKeywords()
         var result: String = ""
         if searchKeywords.count != 0 {
             for searchKeyword in searchKeywords {
-                result = result + "\(searchKeyword)+"
+                result += "\(searchKeyword)+"
             }
             result.removeLast()
         }

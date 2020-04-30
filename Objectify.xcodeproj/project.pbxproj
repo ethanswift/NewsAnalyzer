@@ -25,6 +25,8 @@
 		C0F8457224557B5E00780563 /* KeywordsChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */; };
 		C0F8457424557B8500780563 /* SentencesChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457324557B8500780563 /* SentencesChartsViewController.swift */; };
 		C0F8457624557BA400780563 /* EntitiesChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */; };
+		C0F845BB245AC71100780563 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C0F845BA245AC71100780563 /* .gitignore */; };
+		C0F845BD245ACA6B00780563 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0F845BC245ACA6B00780563 /* LICENSE.txt */; };
 		E5E44B2CE134AA417301CEB2 /* Pods_Objectify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD8026029B0CBB7C32ABEB7 /* Pods_Objectify.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		C0F8457124557B5E00780563 /* KeywordsChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsChartsViewController.swift; sourceTree = "<group>"; };
 		C0F8457324557B8500780563 /* SentencesChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencesChartsViewController.swift; sourceTree = "<group>"; };
 		C0F8457524557BA400780563 /* EntitiesChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesChartsViewController.swift; sourceTree = "<group>"; };
+		C0F845BA245AC71100780563 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C0F845BC245ACA6B00780563 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		CAD4CF97EDC014F2AA15FCCE /* Pods-Objectify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.release.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.release.xcconfig"; sourceTree = "<group>"; };
 		F24029BD2DD588BEC01F9609 /* Pods-Objectify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objectify.debug.xcconfig"; path = "Target Support Files/Pods-Objectify/Pods-Objectify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +83,8 @@
 		C0117EF92420D8B8009C1D42 = {
 			isa = PBXGroup;
 			children = (
+				C0F845BC245ACA6B00780563 /* LICENSE.txt */,
+				C0F845BA245AC71100780563 /* .gitignore */,
 				C0F8456C2454399100780563 /* README.md */,
 				C0117F042420D8B8009C1D42 /* Objectify */,
 				C0117F032420D8B8009C1D42 /* Products */,
@@ -213,8 +219,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F845BB245AC71100780563 /* .gitignore in Resources */,
 				C0117F102420D8BB009C1D42 /* LaunchScreen.storyboard in Resources */,
 				C0117F0D2420D8BB009C1D42 /* Assets.xcassets in Resources */,
+				C0F845BD245ACA6B00780563 /* LICENSE.txt in Resources */,
 				C0117F0B2420D8B8009C1D42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
