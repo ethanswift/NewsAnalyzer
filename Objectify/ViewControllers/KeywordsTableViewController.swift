@@ -190,11 +190,12 @@ class KeywordsTableViewController: UITableViewController, UITabBarControllerDele
     }
     */
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.tabBarController?.tabBar.frame.size.height = 80
-        self.tabBarController?.tabBar.frame.origin.y = view.frame.height - 80
-    }
+    // tab bar height !!! very important 
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        self.tabBarController?.tabBar.frame.size.height = 80
+//        self.tabBarController?.tabBar.frame.origin.y = view.frame.height - 80
+//    }
 
     // MARK: - Navigation
 

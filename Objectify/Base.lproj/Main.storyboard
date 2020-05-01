@@ -32,22 +32,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
-                                <rect key="frame" x="112.5" y="493" width="150" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
+                                <rect key="frame" x="127.5" y="523" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0GP-3v-Z8y"/>
-                                    <constraint firstAttribute="height" constant="150" id="34Q-wr-KH6"/>
+                                    <constraint firstAttribute="width" constant="120" id="0GP-3v-Z8y"/>
+                                    <constraint firstAttribute="height" constant="120" id="34Q-wr-KH6"/>
                                 </constraints>
-                                <state key="normal" title="Record"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="microphone"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="ucf-DU-Lhu" eventType="touchUpInside" id="94F-OP-TSH"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
-                                <rect key="frame" x="16" y="20" width="343" height="465"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
+                                <rect key="frame" x="16" y="20" width="343" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -506,6 +508,7 @@
     <resources>
         <image name="Image" width="64" height="64"/>
         <image name="key" width="64" height="64"/>
+        <image name="microphone" width="64" height="64"/>
         <image name="osi_model" width="64" height="64"/>
         <image name="preview" width="64" height="64"/>
         <image name="stats_column_chart" width="64" height="64"/>

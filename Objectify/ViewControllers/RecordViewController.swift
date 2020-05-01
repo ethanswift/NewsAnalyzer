@@ -32,17 +32,18 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     private let audioEngine = AVAudioEngine()
     
-    var transcriptionText: String = "President Trump on Friday openly encouraged right-wing protests of social distancing restrictions in states with stay-at-home orders, a day after announcing guidelines for how the nation’s governors should carry out an orderly reopening of their communities on their own timetables.In a series of all-caps tweets that started two minutes after a Fox News report on the protesters, the president declared, “LIBERATE MICHIGAN!” and “LIBERATE MINNESOTA!” — two states whose Democratic governors have imposed strict social distancing restrictions. He also lashed out at Virginia, where the state’s Democratic governor and legislature have pushed for strict gun control measures, saying: “LIBERATE VIRGINIA, and save your great 2nd Amendment. It is under siege!”His stark departure from the more bipartisan tone of his announcement on Thursday night suggested Mr. Trump was ceding any semblance of national leadership on the pandemic, and choosing instead to divide the country by playing to his political base.Echoed across the internet and on cable television by conservative pundits and ultraright conspiracy theorists, his tweets were a remarkable example of a president egging on demonstrators and helping to stoke an angry fervor that in its anti-government rhetoric was eerily reminiscent of the birth of the Tea Party movement a decade ago."
+    var transcriptionText: String = ""
+    
+//    "President Trump on Friday openly encouraged right-wing protests of social distancing restrictions in states with stay-at-home orders, a day after announcing guidelines for how the nation’s governors should carry out an orderly reopening of their communities on their own timetables.In a series of all-caps tweets that started two minutes after a Fox News report on the protesters, the president declared, “LIBERATE MICHIGAN!” and “LIBERATE MINNESOTA!” — two states whose Democratic governors have imposed strict social distancing restrictions. He also lashed out at Virginia, where the state’s Democratic governor and legislature have pushed for strict gun control measures, saying: “LIBERATE VIRGINIA, and save your great 2nd Amendment. It is under siege!”His stark departure from the more bipartisan tone of his announcement on Thursday night suggested Mr. Trump was ceding any semblance of national leadership on the pandemic, and choosing instead to divide the country by playing to his political base.Echoed across the internet and on cable television by conservative pundits and ultraright conspiracy theorists, his tweets were a remarkable example of a president egging on demonstrators and helping to stoke an angry fervor that in its anti-government rhetoric was eerily reminiscent of the birth of the Tea Party movement a decade ago."
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        retrieveData()
         
         self.view.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
         recordButton.layer.cornerRadius = 25
         recordButton.layer.backgroundColor = #colorLiteral(red: 0.7242990732, green: 0.7850584388, blue: 0.9598841071, alpha: 1)
         recordButton.setTitleColor(#colorLiteral(red: 0.2265214622, green: 0.2928299606, blue: 0.5221264958, alpha: 1), for: .normal)
+        recordButton.imageView?.contentMode = .scaleAspectFill
         
         textView.layer.cornerRadius = 25
         textView.layer.backgroundColor = #colorLiteral(red: 0.2389388382, green: 0.5892125368, blue: 0.8818323016, alpha: 1)
@@ -59,21 +60,23 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func recordButtonPressed(_ sender: UIButton) {
 //        retrieveData()
-        performSegue(withIdentifier: "goToTabBar", sender: self)
-//        if audioEngine.isRunning {
-//            audioEngine.stop()
-//            recognitionRequest?.endAudio()
-//            recordButton.isEnabled = false
-//            recordButton.setTitle("Start Recording", for: .normal)
-//            if transcriptionText != "" {
-//                performSegue(withIdentifier: "goToTabBar", sender: self)
-//            } else {
-//                self.textView.text = "Nothing Has Been recorded! Try Again!"
-//            }
-//        } else {
-//            startRecording()
-//            recordButton.setTitle("Stop Recording", for: .normal)
-//        }
+//        performSegue(withIdentifier: "goToTabBar", sender: self)
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            recordButton.isEnabled = false
+            recordButton.tintColor = UIColor.red
+            
+            recordButton.setTitle("Start Recording", for: .normal)
+            if transcriptionText != "" {
+                self.retrieveDataFromAPI()
+            } else {
+                self.textView.text = "Nothing Has Been recorded! Try Again!"
+            }
+        } else {
+            startRecording()
+            recordButton.setTitle("Stop Recording", for: .normal)
+        }
     }
     
     // MARK: -Speech Recognition
@@ -177,7 +180,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     // Retrieve API data and send them to tab bars
     
-    func retrieveDataFromAPI (completion: () -> ()) {
+    func retrieveDataFromAPI () {
         let url = "http://api.text2data.com/v3/analyze"
         let headers = ["Accept": "application/json",
                        "Content-Type": "application/json"]
@@ -192,12 +195,16 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if response.error != nil || response.data == nil {
                 print("Client Error: ",response.error!.localizedDescription)
+                // with alert ; please try again; this is not the command
+//                self.startRecording()
+//                self.recordButton.setTitle("Stop Recording", for: .normal)
                 return
             }
 
             do {
                 guard let json = try? JSON(data: response.data!) else {return}
-                print("json recieved!")
+                print("json recieved!", json)
+    
                 if let autoCategories = json["AutoCategories"].array {
 
                     for autoCategory in autoCategories {
@@ -282,59 +289,9 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         self.items.append(item)
                     }
                 }
+                self.performSegue(withIdentifier: "goToTabBar", sender: self)
             }
         }
-    }
-    
-//    func retrieveDataForEmotion () {
-//        let url = "http://api.text2data.com/v3/categorize"
-//        let headers = ["Accept": "application/json",
-//                       "Content-Type": "application/json"]
-//        let params = ["DocumentText": transcriptionText,
-//                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
-//                      "Secret": "8A13C9BB-7762-46E5",
-//                      "UserCategoryModelName": "emotion_detection",
-//                      "RequestIdentifier": "" ] as [String : Any]
-//        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-//            if response.error != nil {
-//                print(response.error!)
-//            }
-
-//            do {
-//                guard let json = try? JSON(data: response.data!) else {return}
-//                print(json)
-//            } catch {}
-//        }
-//    }
-    
-//    func retrieveDataForEntities () {
-//        let url = "http://api.text2data.com/v3/extract"
-//        let headers = ["Accept": "application/json",
-//                       "Content-Type": "application/json"]
-//        let params = ["DocumentText": transcriptionText,
-//                      "IsTwitterContent": false,
-//                      "PrivateKey": "8A13C9BB-7762-46E5-830B-980EF1E12426 ",
-//                      "Secret": "8A13C9BB-7762-46E5",
-//                      "UserCategoryModelName": "",
-//                      "RequestIdentifier": "" ] as [String : Any]
-//        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-//            if response.error != nil {
-//                print(response.error!)
-//            }
-
-//            do {
-//                guard let json = try? JSON(data: response.data!) else {return}
-//                print(json)
-//            } catch {}
-//        }
-//    }
-    
-    func retrieveData () {
-        retrieveDataFromAPI() {
-            performSegue(withIdentifier: "goToTabBar", sender: self)
-        }
-//        retrieveDataForEmotion()
-//        retrieveDataForEntities()
     }
     
     // MARK: - Navigation

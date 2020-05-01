@@ -36,10 +36,11 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 //        webView = WKWebView(frame: .zero, configuration: webConfig)
         
         let query: String = produceURL()
-        let url = "http://news.google.com/news?q=\(query)"
+        let url = "http://news.google.com/news?q=\(query)" 
         print(url) // words with space
-        
-        webView.load(URLRequest(url: URL(string: url)!))
+        if url != "" {
+            webView.load(URLRequest(url: URL(string: url)!))
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -49,6 +50,7 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
     
     func fillSearchKeywords () {
         for category in categories {
+            category.categoryName.components(separatedBy: " ")
             searchKeywords.append(category.categoryName)
         }
         for item in items {
