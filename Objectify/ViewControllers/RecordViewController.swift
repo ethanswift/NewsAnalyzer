@@ -11,6 +11,7 @@ import AVFoundation
 import Speech
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
@@ -52,6 +53,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         recordButton.isEnabled = false
         requestAuthorization()
         speechRecognizer?.delegate = self
+        
+        SVProgressHUD.setBackgroundColor(UIColor.clear)
  
         // Do any additional setup after loading the view.
     }
@@ -69,6 +72,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             
             recordButton.setTitle("Start Recording", for: .normal)
             if transcriptionText != "" {
+                SVProgressHUD.show()
                 self.retrieveDataFromAPI()
             } else {
                 self.textView.text = "Nothing Has Been recorded! Try Again!"
@@ -289,6 +293,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         self.items.append(item)
                     }
                 }
+                SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToTabBar", sender: self)
             }
         }

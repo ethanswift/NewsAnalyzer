@@ -42,6 +42,13 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)!], for: .normal)
         self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "Image")
+        self.tabBarController?.tabBar.shadowImage = UIImage()
+        self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.7242990732, green: 0.7850584388, blue: 0.9598841071, alpha: 1)
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
+        self.tabBarController?.tabBar.unselectedItemTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
         
         // Do any additional setup after loading the view.
     }

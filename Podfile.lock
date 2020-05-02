@@ -4,12 +4,14 @@ PODS:
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
   - Gradients (0.3.0)
+  - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Charts (= 3.4.0)
   - Gradients
+  - SVProgressHUD
   - SwiftyJSON
 
 SPEC REPOS:
@@ -17,14 +19,16 @@ SPEC REPOS:
     - Alamofire
     - Charts
     - Gradients
+    - SVProgressHUD
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Gradients: d7e1be639692b86577616ee55ea96f54fb5f1de1
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 0fbc477cff7885f62ed327b3d8daa0c487aff1a3
+PODFILE CHECKSUM: b017c496b82489740d05e2e5270860b8e9b8daa2
 
 COCOAPODS: 1.7.5
