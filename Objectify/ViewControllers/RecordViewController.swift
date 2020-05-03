@@ -62,7 +62,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: -Button Pressed
     
     @IBAction func recordButtonPressed(_ sender: UIButton) {
-//        retrieveData()
+//        retrieveDataFromAPI()
 //        performSegue(withIdentifier: "goToTabBar", sender: self)
         if audioEngine.isRunning {
             audioEngine.stop()
@@ -199,6 +199,10 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if response.error != nil || response.data == nil {
                 print("Client Error: ",response.error!.localizedDescription)
+                SVProgressHUD.dismiss()
+                let alert = UIAlertController(title: "Connection Failed", message: "Your connection to the internet has been failed, Please try agian later!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 // with alert ; please try again; this is not the command
 //                self.startRecording()
 //                self.recordButton.setTitle("Stop Recording", for: .normal)
