@@ -18,7 +18,8 @@ When you confront an important news excerpt or hear part of a news that matters 
 
 ## Some Pages
 
-<img src="https://user-images.githubusercontent.com/60321318/80974988-c6a06500-8e36-11ea-9885-57ca9edd07c4.png" width="250">
+<img src="https://user-images.githubusercontent.com/60321318/80974988-c6a06500-8e36-11ea-9885-57ca9edd07c4.png" width="250"><img src="https://user-images.githubusercontent.com/60321318/80989431-29e7c280-8e4a-11ea-8afd-49dd0a4605bf.png" width="250"><img src="https://user-images.githubusercontent.com/60321318/80989466-366c1b00-8e4a-11ea-993e-69166ccaed42.png" width="250"><img src="https://user-images.githubusercontent.com/60321318/80989499-43890a00-8e4a-11ea-89ce-6614872572d5.png" width="250"><img src="https://user-images.githubusercontent.com/60321318/80989528-4d127200-8e4a-11ea-8d9c-0e7babea4bab.png" width="250">
+
 
 ## Goals and What You Can Do 
 
