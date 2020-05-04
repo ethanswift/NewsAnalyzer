@@ -28,6 +28,10 @@ News Analyzer, is an app to let you get deeper about what you hear on the news. 
 
 [Text2Data](https://text2data.com/) 
 
+## Charts Analysis
+
+[Charts](https://github.com/danielgindi/Charts)
+
 ## How It Analyzes 
 
 The app gathers information using Speech framework and then sends the informations to sentiment analysis frameworks through API calls and retrieve back the results. It also uses these info to present related web search results. 

@@ -36,7 +36,7 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 //        webView = WKWebView(frame: .zero, configuration: webConfig)
         
         let query: String = produceURL()
-        let url = "http://news.google.com/news?q=\(query)" 
+        let url = "http://news.google.com/news?q=\(query)"
         print(url) // words with space
         if url != "" {
             webView.load(URLRequest(url: URL(string: url)!))
@@ -50,15 +50,41 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
     }
     
     func fillSearchKeywords () {
+        if categories.count != 0 {
         for category in categories {
-            category.categoryName.components(separatedBy: " ")
-            searchKeywords.append(category.categoryName)
-        }
+            var cat = ""
+            let components = category.categoryName.components(separatedBy: " ")
+            for component in components {
+                cat += "\(component)+"
+            }
+            cat.removeLast()
+            self.searchKeywords.append(cat)
+            }}
         for item in items {
             if item.sentencePartType == "entity" {
-                searchKeywords.append(item.text)
+                if item.text.components(separatedBy: " ").count > 1 {
+                    var ent = ""
+                    let components = item.text.components(separatedBy: " ")
+                    for component in components {
+                        ent += "\(component)+"
+                    }
+                    ent.removeLast()
+                    self.searchKeywords.append(ent)
+                } else {
+                    self.searchKeywords.append(item.text)
+                }
             } else if item.sentencePartType == "keyword" {
-                searchKeywords.append(item.text)
+                if item.text.components(separatedBy: " ").count > 1 {
+                    var key = ""
+                    let components = item.text.components(separatedBy: " ")
+                    for component in components {
+                        key += "\(component)+"
+                    }
+                    key.removeLast()
+                    self.searchKeywords.append(key)
+                } else {
+                    self.searchKeywords.append(item.text)
+                }
             }
         }
     }

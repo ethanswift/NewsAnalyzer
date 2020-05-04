@@ -36,6 +36,11 @@ class ThemesTableViewController: UITableViewController, UITabBarControllerDelega
         
         self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)], for: .normal)
         self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "osi_model")
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.
        
  
         // Uncomment the following line to preserve selection between presentations
@@ -79,6 +84,7 @@ class ThemesTableViewController: UITableViewController, UITabBarControllerDelega
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "themesCell", for: indexPath)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         if initialCell[indexPath.section] == true {
             if self.themes[indexPath.section].sentimentResult == "positive" {
                 cell.backgroundColor = #colorLiteral(red: 0.2040559649, green: 0.7372421622, blue: 0.6007294059, alpha: 1)
@@ -100,13 +106,13 @@ class ThemesTableViewController: UITableViewController, UITabBarControllerDelega
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " Value: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(self.themes[indexPath.section].sentimentValue)"
+            cell.textLabel?.text = "Sentiment: " + " \(self.themes[indexPath.section].sentimentResult) " + " \n Value: " + " \(self.themes[indexPath.section].sentimentPolarity)" + " \(String(format: "%.3f",self.themes[indexPath.section].sentimentValue))"
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Magnitude: \(self.themes[indexPath.section].magnitude)"
+            cell.textLabel?.text = "Magnitude: \(String(format: "%.3f",self.themes[indexPath.section].magnitude))"
             cell.textLabel?.textAlignment = .center
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20

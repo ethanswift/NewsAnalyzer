@@ -30,6 +30,8 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         
         fillCoreSentences()
         
+        self.view.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        
         sentencesTableView.delegate = self
         sentencesTableView.dataSource = self
         tabBarController?.delegate = self
@@ -44,6 +46,10 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.tabBarController?.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir", size: 16)], for: .normal)
         self.tabBarController?.tabBarItem.image = #imageLiteral(resourceName: "view_list")
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.926155746, green: 0.9410773516, blue: 0.9455420375, alpha: 1)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
    
         // Do any additional setup after loading the view.
     }
@@ -63,6 +69,7 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sentimentCell", for: indexPath)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         if self.coreSentences[indexPath.section].sentimentResult == "positive" {
             cell.backgroundColor = #colorLiteral(red: 0.2040559649, green: 0.7372421622, blue: 0.6007294059, alpha: 1)
             cell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -83,13 +90,13 @@ class SentimentViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Sentiment: " + " \(self.coreSentences[indexPath.section].sentimentResult) " + " Value: " + " \(self.coreSentences[indexPath.section].sentimentPolarity)" + " \(self.coreSentences[indexPath.section].sentimentValue)"
+            cell.textLabel?.text = "Sentiment: " + " \(self.coreSentences[indexPath.section].sentimentResult) " + "\n Value: " + " \(self.coreSentences[indexPath.section].sentimentPolarity)" + " \(String(format: "%.3f" ,self.coreSentences[indexPath.section].sentimentValue))"
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Magnitude: \(self.coreSentences[indexPath.section].magnitude)"
+            cell.textLabel?.text = "Magnitude: \(String(format: "%.3f",self.coreSentences[indexPath.section].magnitude))"
             cell.textLabel?.textAlignment = .center
             cell.clipsToBounds = true
             cell.layer.cornerRadius = 20

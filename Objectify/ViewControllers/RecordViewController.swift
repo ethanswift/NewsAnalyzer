@@ -62,14 +62,14 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func recordButtonPressed(_ sender: UIButton) {
         retrieveDataFromAPI()
-        performSegue(withIdentifier: "goToTabBar", sender: self)
+//        performSegue(withIdentifier: "goToTabBar", sender: self)
 //        if audioEngine.isRunning {
 //            audioEngine.stop()
 //            recognitionRequest?.endAudio()
 //            recordButton.isEnabled = false
 //            recordButton.tintColor = UIColor.red
 //
-//            recordButton.setTitle("Start Recording", for: .normal)
+//            recordButton.setTitle("Start Recording!", for: .normal)
 //            if transcriptionText != "" {
 //                SVProgressHUD.show()
 //                self.retrieveDataFromAPI()
@@ -78,7 +78,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 //            }
 //        } else {
 //            startRecording()
-//            recordButton.setTitle("Stop Recording", for: .normal)
+//            recordButton.setTitle("Stop Recording!", for: .normal)
 //        }
     }
     
@@ -210,8 +210,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 
             do {
                 guard let json = try? JSON(data: response.data!) else {return}
-                print("json recieved!", json)
-    
+                print("json recieved!")
                 if let autoCategories = json["AutoCategories"].array {
 
                     for autoCategory in autoCategories {
@@ -294,16 +293,17 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let text = theme["Text"].string ?? "Not Found"
                         let item = Item(sentenceText: sentenceText, sentencePartType: sentencePartType, sentenceNumber: 0.0, text: text, keywordType: keywordType, mentions: mentions, sentimentPolarity: sentimentPolarity, sentimentResult: sentimentResult, sentimentValue: sentimentValue, magnitude: magnitude)
                         self.items.append(item)
+                        if self.items.count != 0 {
+//                            self.performSegue(withIdentifier: "goToTabBar", sender: self)
+                        }
                     }
                 }
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "goToTabBar", sender: self)
+                if self.items.count != 0 {
+                    self.performSegue(withIdentifier: "goToTabBar", sender: self)
+                }
             }
         }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        self.recordButton.imageView?.contentMode = .scaleAspectFit
     }
     
     // MARK: - Navigation
