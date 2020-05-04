@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="95"/>
+            <point key="canvasLocation" x="812" y="94.902548725637189"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="Mzs-59-MlO">
@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
                                 <rect key="frame" x="127.5" y="523" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="0GP-3v-Z8y"/>
@@ -45,7 +45,7 @@
                                     <action selector="recordButtonPressed:" destination="ucf-DU-Lhu" eventType="touchUpInside" id="94F-OP-TSH"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-ED-6pa">
                                 <rect key="frame" x="16" y="20" width="343" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,9 +56,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gI3-gz-BKN" firstAttribute="trailing" secondItem="aEz-ED-6pa" secondAttribute="trailing" constant="16" id="DKI-gM-Yr2"/>
-                            <constraint firstItem="hxU-sI-QGp" firstAttribute="top" secondItem="aEz-ED-6pa" secondAttribute="bottom" constant="8" id="KFi-hV-MFz"/>
+                            <constraint firstItem="hxU-sI-QGp" firstAttribute="top" secondItem="aEz-ED-6pa" secondAttribute="bottom" constant="8" id="N36-hB-JEt"/>
                             <constraint firstItem="gI3-gz-BKN" firstAttribute="bottom" secondItem="hxU-sI-QGp" secondAttribute="bottom" constant="24" id="gOM-wr-gcg"/>
-                            <constraint firstItem="hxU-sI-QGp" firstAttribute="top" secondItem="aEz-ED-6pa" secondAttribute="bottom" constant="8" id="gWZ-lq-Lsw"/>
                             <constraint firstItem="aEz-ED-6pa" firstAttribute="top" secondItem="gI3-gz-BKN" secondAttribute="top" id="iHM-iy-uGo"/>
                             <constraint firstItem="aEz-ED-6pa" firstAttribute="leading" secondItem="gI3-gz-BKN" secondAttribute="leading" constant="16" id="jyq-Pl-kC1"/>
                             <constraint firstItem="hxU-sI-QGp" firstAttribute="centerX" secondItem="QYs-Vf-7Qq" secondAttribute="centerX" id="oQE-KM-qMS"/>
@@ -73,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crv-K9-in4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="95"/>
+            <point key="canvasLocation" x="1709.5999999999999" y="94.902548725637189"/>
         </scene>
         <!--Themes Table View Controller-->
         <scene sceneID="yby-G7-DH9">
@@ -345,7 +344,7 @@
             </objects>
             <point key="canvasLocation" x="5837.6000000000004" y="644.52773613193403"/>
         </scene>
-        <!--Item-->
+        <!--Web Search-->
         <scene sceneID="gBh-Oi-edu">
             <objects>
                 <viewController id="dj7-zr-EFa" customClass="WebSearchViewController" customModule="Objectify" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,7 +370,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ja-Wg-eNb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="preview" id="QGj-1J-bef"/>
+                    <tabBarItem key="tabBarItem" title="Web Search" image="preview" id="QGj-1J-bef"/>
                     <connections>
                         <outlet property="webView" destination="AnW-o5-mk7" id="tEr-8C-8Zx"/>
                     </connections>
@@ -402,11 +401,11 @@
             </objects>
             <point key="canvasLocation" x="2705" y="95"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Themes-->
         <scene sceneID="KLQ-jb-DlO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5n8-c4-7cH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="osi_model" id="qgc-mn-As2"/>
+                    <tabBarItem key="tabBarItem" title="Themes" image="osi_model" id="qgc-mn-As2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7w8-y6-dVd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -421,11 +420,11 @@
             </objects>
             <point key="canvasLocation" x="4013.5999999999999" y="-1662.8185907046477"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Keywords-->
         <scene sceneID="gru-06-hdn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ijf-VH-8x7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="key" id="4SI-Qq-smD"/>
+                    <tabBarItem key="tabBarItem" title="Keywords" image="key" id="4SI-Qq-smD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="keU-iM-zRq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -440,11 +439,11 @@
             </objects>
             <point key="canvasLocation" x="4013.5999999999999" y="-906.29685157421295"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Entities-->
         <scene sceneID="QT5-ZF-lmo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wj8-Tz-m2c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Image" id="fSy-zk-sO2"/>
+                    <tabBarItem key="tabBarItem" title="Entities" image="Image" id="fSy-zk-sO2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ht2-1F-ljh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -489,11 +488,11 @@
             </objects>
             <point key="canvasLocation" x="5837.6000000000004" y="-906.29685157421295"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Core Sentences-->
         <scene sceneID="Hl8-Yo-JbA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ohI-1e-8WB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="view_list" id="SWg-3q-jgf"/>
+                    <tabBarItem key="tabBarItem" title="Core Sentences" image="view_list" id="SWg-3q-jgf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GzZ-0m-3aM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

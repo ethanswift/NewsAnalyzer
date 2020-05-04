@@ -40,6 +40,7 @@ class WebSearchViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
         print(url) // words with space
         if url != "" {
             webView.load(URLRequest(url: URL(string: url)!))
+            self.view.addSubview(webView)
         }
         // Do any additional setup after loading the view.
     }

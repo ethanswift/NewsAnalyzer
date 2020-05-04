@@ -33,10 +33,9 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     private let audioEngine = AVAudioEngine()
     
-    var transcriptionText: String = ""
+    var transcriptionText: String = "President Trump on Friday openly encouraged right-wing protests of social distancing restrictions in states with stay-at-home orders, a day after announcing guidelines for how the nation’s governors should carry out an orderly reopening of their communities on their own timetables.In a series of all-caps tweets that started two minutes after a Fox News report on the protesters, the president declared, “LIBERATE MICHIGAN!” and “LIBERATE MINNESOTA!” — two states whose Democratic governors have imposed strict social distancing restrictions. He also lashed out at Virginia, where the state’s Democratic governor and legislature have pushed for strict gun control measures, saying: “LIBERATE VIRGINIA, and save your great 2nd Amendment. It is under siege!”His stark departure from the more bipartisan tone of his announcement on Thursday night suggested Mr. Trump was ceding any semblance of national leadership on the pandemic, and choosing instead to divide the country by playing to his political base.Echoed across the internet and on cable television by conservative pundits and ultraright conspiracy theorists, his tweets were a remarkable example of a president egging on demonstrators and helping to stoke an angry fervor that in its anti-government rhetoric was eerily reminiscent of the birth of the Tea Party movement a decade ago."
     
-//    "President Trump on Friday openly encouraged right-wing protests of social distancing restrictions in states with stay-at-home orders, a day after announcing guidelines for how the nation’s governors should carry out an orderly reopening of their communities on their own timetables.In a series of all-caps tweets that started two minutes after a Fox News report on the protesters, the president declared, “LIBERATE MICHIGAN!” and “LIBERATE MINNESOTA!” — two states whose Democratic governors have imposed strict social distancing restrictions. He also lashed out at Virginia, where the state’s Democratic governor and legislature have pushed for strict gun control measures, saying: “LIBERATE VIRGINIA, and save your great 2nd Amendment. It is under siege!”His stark departure from the more bipartisan tone of his announcement on Thursday night suggested Mr. Trump was ceding any semblance of national leadership on the pandemic, and choosing instead to divide the country by playing to his political base.Echoed across the internet and on cable television by conservative pundits and ultraright conspiracy theorists, his tweets were a remarkable example of a president egging on demonstrators and helping to stoke an angry fervor that in its anti-government rhetoric was eerily reminiscent of the birth of the Tea Party movement a decade ago."
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,25 +61,25 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: -Button Pressed
     
     @IBAction func recordButtonPressed(_ sender: UIButton) {
-//        retrieveDataFromAPI()
-//        performSegue(withIdentifier: "goToTabBar", sender: self)
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            recordButton.isEnabled = false
-            recordButton.tintColor = UIColor.red
-            
-            recordButton.setTitle("Start Recording", for: .normal)
-            if transcriptionText != "" {
-                SVProgressHUD.show()
-                self.retrieveDataFromAPI()
-            } else {
-                self.textView.text = "Nothing Has Been recorded! Try Again!"
-            }
-        } else {
-            startRecording()
-            recordButton.setTitle("Stop Recording", for: .normal)
-        }
+        retrieveDataFromAPI()
+        performSegue(withIdentifier: "goToTabBar", sender: self)
+//        if audioEngine.isRunning {
+//            audioEngine.stop()
+//            recognitionRequest?.endAudio()
+//            recordButton.isEnabled = false
+//            recordButton.tintColor = UIColor.red
+//
+//            recordButton.setTitle("Start Recording", for: .normal)
+//            if transcriptionText != "" {
+//                SVProgressHUD.show()
+//                self.retrieveDataFromAPI()
+//            } else {
+//                self.textView.text = "Nothing Has Been recorded! Try Again!"
+//            }
+//        } else {
+//            startRecording()
+//            recordButton.setTitle("Stop Recording", for: .normal)
+//        }
     }
     
     // MARK: -Speech Recognition
@@ -301,6 +300,10 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                 self.performSegue(withIdentifier: "goToTabBar", sender: self)
             }
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.recordButton.imageView?.contentMode = .scaleAspectFit
     }
     
     // MARK: - Navigation
