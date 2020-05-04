@@ -40,7 +40,6 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Start Recording"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="ucf-DU-Lhu" eventType="touchUpInside" id="94F-OP-TSH"/>
                                 </connections>
