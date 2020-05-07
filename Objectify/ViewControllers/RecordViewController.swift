@@ -52,7 +52,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         textView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         recordButton.isEnabled = false
-        recordButton.setTitle("Start Recording!", for: .normal)
+//        recordButton.setTitle("Start Recording!", for: .normal)
+        recordButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         requestAuthorization()
         speechRecognizer?.delegate = self
         
@@ -70,9 +71,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             recordButton.isEnabled = false
-            recordButton.tintColor = UIColor.red
-
-            recordButton.setTitle("Start Recording!", for: .normal)
+            recordButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//            recordButton.setTitle("Start Recording!", for: .normal)
             if transcriptionText != "" {
                 SVProgressHUD.show()
                 self.retrieveDataFromAPI()
@@ -81,7 +81,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             }
         } else {
             startRecording()
-            recordButton.setTitle("Stop Recording!", for: .normal)
+            recordButton.tintColor = #colorLiteral(red: 0.920953393, green: 0.447560966, blue: 0.4741248488, alpha: 1)
+//            recordButton.setTitle("Stop Recording!", for: .normal)
         }
     }
     

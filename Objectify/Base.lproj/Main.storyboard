@@ -32,13 +32,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-sI-QGp">
-                                <rect key="frame" x="112.5" y="493" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="492.5" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="0GP-3v-Z8y"/>
                                     <constraint firstAttribute="height" constant="150" id="34Q-wr-KH6"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" backgroundImage="mic.fill" catalog="system"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="ucf-DU-Lhu" eventType="touchUpInside" id="94F-OP-TSH"/>
                                 </connections>
@@ -509,6 +510,7 @@
     <resources>
         <image name="Image" width="32" height="32"/>
         <image name="key" width="32" height="32"/>
+        <image name="mic.fill" catalog="system" width="54" height="64"/>
         <image name="osi_model" width="32" height="32"/>
         <image name="preview" width="32" height="32"/>
         <image name="stats_column_chart" width="32" height="32"/>
